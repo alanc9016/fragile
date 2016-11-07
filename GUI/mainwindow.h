@@ -7,6 +7,7 @@
 #include <QSqlQuery>
 #include <QtSql>
 #include <QTextStream>
+#include <QVector>
 #include <iostream>
 #include "customer.h"
 

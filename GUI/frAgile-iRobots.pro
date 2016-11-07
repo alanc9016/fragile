@@ -16,7 +16,8 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     database.cpp \
-    customer.cpp
+    customer.cpp \
+    customerlist.cpp
 
 HEADERS  += mainwindow.h \
     customer.h

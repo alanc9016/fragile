@@ -4,7 +4,7 @@ CREATE TABLE "customer" (
 	`street`	VARCHAR(75) NOT NULL,
 	`city`	VARCHAR(50) NOT NULL,
 	`state`	VARCHAR(2) NOT NULL,
-	`zip`	INTEGER NOT NULL,
+	`zip`	VARCHAR(5) NOT NULL,
 	`interest`	VARCHAR(50) NOT NULL DEFAULT 'somewhat interested',
 	`status`	VARCHAR(50) NOT NULL DEFAULT 'nice to have',
 	`testimonial`	VARCHAR(300),

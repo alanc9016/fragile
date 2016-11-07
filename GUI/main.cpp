@@ -10,6 +10,8 @@
 int main(int argc, char *argv[])
 {
     createDatabase();
+    customerlist irobots;
+    QTextStream(stdout) << "zip of item in list " << irobots.getCustomer("FBI").getZip();
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
