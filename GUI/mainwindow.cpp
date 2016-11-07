@@ -24,9 +24,17 @@ void MainWindow::on_adminLogBtn_clicked()
 
 }
 
+/*!
+ * \brief MainWindow::on_helpBtn_clicked:
+ * This button gives an explanation on how
+ * to operate the program
+ */
 void MainWindow::on_helpBtn_clicked()
 {
+    QMessageBox help;
 
+    help.information(this,"Instructions","To purchase a robot click the Purchase a Robot button!\nIf you're"
+                                         " an administrator click on the Admin? button!");
 }
 
 void MainWindow::on_purchaseBtn_clicked()
