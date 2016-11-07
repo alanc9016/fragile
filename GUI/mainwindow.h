@@ -2,6 +2,14 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QFileInfo>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QtSql>
+#include <QTextStream>
+#include <QVector>
+#include <iostream>
+#include "customer.h"
 
 namespace Ui {
 class MainWindow;
@@ -23,5 +31,17 @@ private slots:
 private:
     Ui::MainWindow *ui;
 };
+/**
+ * @brief createDatabase
+ * Method for creating a database
+ */
+void createDatabase();
+/**
+ * @brief executeSQLFile
+ * Will execute passed file
+ * @param file
+ * Relative path to .sql file
+ */
+void executeSQLFile(const QString&);
 
 #endif // MAINWINDOW_H
