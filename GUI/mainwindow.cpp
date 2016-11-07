@@ -35,6 +35,7 @@ void MainWindow::on_helpBtn_clicked()
 
     help.information(this,"Instructions","To purchase a robot click the Purchase a Robot button!\nIf you're"
                                          " an administrator click on the Admin? button!");
+    help.show();
 }
 
 void MainWindow::on_purchaseBtn_clicked()
