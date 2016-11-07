@@ -2,9 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-<<<<<<< HEAD:mainwindow.h
 #include <QMessageBox>
-=======
 #include <QFileInfo>
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -13,7 +11,6 @@
 #include <QVector>
 #include <iostream>
 #include "customer.h"
->>>>>>> origin/Ryan:GUI/mainwindow.h
 
 namespace Ui {
 class MainWindow;
