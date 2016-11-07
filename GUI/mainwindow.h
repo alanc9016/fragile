@@ -11,7 +11,7 @@
 #include <QVector>
 #include <iostream>
 #include "customer.h"
-
+#include <QMessageBox>
 namespace Ui {
 class MainWindow;
 }
