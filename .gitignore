@@ -1,1 +1,7 @@
+doc/
+*.user*
+.open
+.read
+build-*
+*.db
 *.swp
