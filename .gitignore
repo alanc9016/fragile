@@ -5,3 +5,4 @@ doc/
 build-*
 *.db
 *.swp
+.DS*
