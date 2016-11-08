@@ -6,12 +6,12 @@
 void createDatabase()
 {
     //Check if database exists before we init it
-    QFileInfo check_file("../irobots.db");
+    QFileInfo check_file("/Users/macowner/Desktop/fragile/fragile/irobots.db");
     bool exists = check_file.exists() && check_file.isFile();
 
     // connect to database
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("../irobots.db");
+    db.setDatabaseName("/Users/macowner/Desktop/fragile/fragile/irobots.db");
     bool db_ok = db.open();
      QTextStream(stdout) << "Connecting to database" << endl;
     if(db_ok){
@@ -20,8 +20,8 @@ void createDatabase()
 
     //If the database doesn't exist, run the init queries
     if(!exists) {
-        executeSQLFile("../createdb.sql");
-        executeSQLFile("../data.sql");
+        executeSQLFile("/Users/macowner/Desktop/fragile/fragile/createdb.sql");
+        executeSQLFile("/Users/macowner/Desktop/fragile/fragile/data.sql");
     }
 }
 /**
