@@ -25,26 +25,19 @@ void MainWindow::on_adminLogBtn_clicked()
 
 }
 
-<<<<<<< HEAD
 /**
  * @brief MainWindow::on_helpBtn_clicked
  * -----------------------------------------------------------------
  * This button prompts a widget which provides help to the user
  * regarding how to use the application.
  **/
-=======
-/*!
- * \brief MainWindow::on_helpBtn_clicked:
- * This button gives an explanation on how
- * to operate the program
- */
->>>>>>> 98bf94e8f44bbd5369709a6547c5939f02f2ee58
 void MainWindow::on_helpBtn_clicked()
 {
     QMessageBox help;
 
-    help.information(this,"Instructions","To purchase a robot click the Purchase a Robot button!\nIf you're"
-                                         " an administrator click on the Admin? button!");
+    help.information(this,"Instructions","To purchase a robot click the \"Purchase a Robot\" button,\n"
+                                         "although if you're an administrator, click on the \"Admin?\" "
+                                         "button to be directed to the login page.";
 }
 
 /**
