@@ -38,6 +38,7 @@ void customerlist::printCustomers()const
 {
     QVector<customer>::const_iterator it = customers.begin();
 
+
     while(it != customers.end())
     {
         it->printCustomer();
