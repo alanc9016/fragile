@@ -26,9 +26,11 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_adminLogBtn_clicked();
+    void on_adminLoginBtn_clicked();
+    void on_backBtn_clicked();
     void on_helpBtn_clicked();
     void on_purchaseBtn_clicked();
+
 
 private:
     Ui::MainWindow *ui;
