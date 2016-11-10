@@ -23,6 +23,9 @@
       <height>471</height>
      </rect>
     </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
     <widget class="QWidget" name="landingPage">
      <widget class="QPushButton" name="adminLoginBtn">
       <property name="geometry">
@@ -144,8 +147,23 @@ p, li { white-space: pre-wrap; }
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="purchasePage">
+     <widget class="QPushButton" name="pBackBtn">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Back to Landing</string>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="adminLoginPage">
-     <widget class="QPushButton" name="backBtn">
+     <widget class="QPushButton" name="aBackBtn">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -202,6 +220,73 @@ p, li { white-space: pre-wrap; }
         <width>191</width>
         <height>21</height>
        </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="loginBtn">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>270</y>
+        <width>80</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Login</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="adminPage">
+     <widget class="QPushButton" name="addDeleteCustomerBtn">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>100</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Add/Delete a Customer</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="logOutBtn">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>420</y>
+        <width>91</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Log Out</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="viewListBtn">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>50</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>View Customer List</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="updateListBtn">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>340</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Update Customer List</string>
       </property>
      </widget>
     </widget>

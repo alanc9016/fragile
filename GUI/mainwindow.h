@@ -9,9 +9,10 @@
 #include <QTextStream>
 #include <QVector>
 #include <iostream>
-#include "customer.h"
 #include <QMessageBox>
 #include <QRegExp>
+
+#include "customer.h"
 
 namespace Ui {
 class MainWindow;
@@ -26,11 +27,21 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_adminLoginBtn_clicked();
-    void on_backBtn_clicked();
     void on_helpBtn_clicked();
     void on_purchaseBtn_clicked();
+    void on_adminLoginBtn_clicked();
 
+    void on_pBackBtn_clicked();
+
+    void on_aBackBtn_clicked();
+    void on_adminUserLE_returnPressed();
+    void on_adminPassLE_returnPressed();
+    void on_loginBtn_clicked();
+
+    void on_logOutBtn_clicked();
+    void on_viewListBtn_clicked();
+    void on_addDeleteCustomerBtn_clicked();
+    void on_updateListBtn_clicked();
 
 private:
     Ui::MainWindow *ui;
