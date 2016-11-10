@@ -11,6 +11,7 @@
 #include <iostream>
 #include "customer.h"
 #include <QMessageBox>
+#include <QRegExp>
 
 namespace Ui {
 class MainWindow;
