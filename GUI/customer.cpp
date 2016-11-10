@@ -260,3 +260,13 @@ void customer:: setActive(bool a)
 {
     isActive = a;
 }
+
+/**
+ * @brief customer::printCustomer
+ * @param
+ *
+ */
+void customer:: printCustomer()const
+{
+    qDebug() << "Name: " << getName() << endl;
+}

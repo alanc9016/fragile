@@ -135,6 +135,14 @@ public:
      * bool of whether customer is active or not
      */
     bool getActive() const;
+
+    /**
+     * @brief printCustomer
+     * @return
+     * print full information of customer
+     * mainly for testing
+     */
+    void printCustomer()const;
 };
 
 /**
