@@ -5,10 +5,15 @@
  */
 void createDatabase()
 {
-    QDir current = QDir(QString("../"));
-    QString filenames [3] = {current.absoluteFilePath(QString("irobots.db")),
-                            current.absoluteFilePath(QString("createdb.sql")),
-                            current.absoluteFilePath(QString("data.sql"))};
+    QDir current = QDir(QString("./"));
+    QString filenames [3] = {current.currentPath().remove(QRegExp("build.+")),
+                             current.currentPath().remove(QRegExp("build.+")),
+                             current.currentPath().remove(QRegExp("build.+"))
+                            };
+    filenames[0].append("irobots.db");
+    filenames[1].append("createdb.sql");
+    filenames[2].append("data.sql");
+
     //Check if database exists before we init it
     QFileInfo check_file(filenames[0]);
     bool exists = check_file.exists() && check_file.isFile();
