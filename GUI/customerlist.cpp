@@ -2,12 +2,14 @@
 customerlist::customerlist()
 {
     QSqlQuery query;
-    query.exec("SELECT name, street, city, state, zip, status, interest, testimonial, requested, isActive from customer");
+    query.exec("SELECT name, street, city, state, zip, status, interest, testimonial, requested, isActive,"
+               "robot1, robot2, robot3 from customer");
     while (query.next()) {
         if(query.value(9).toBool())
             customers.push_back(customer(query.value(0).toString(), query.value(1).toString(), query.value(2).toString(),
                                      query.value(3).toString(), query.value(4).toString(), query.value(5).toString(),
-                                     query.value(6).toString(), query.value(7).toString(), query.value(8).toString()));
+                                     query.value(6).toString(), query.value(7).toString(), query.value(8).toString(),
+                                         query.value(10).toInt(), query.value(11).toInt(), query.value(12).toInt()));
     }
 }
 
@@ -19,7 +21,8 @@ customerlist::customerlist(QString q)
         if(query.value(9).toBool())
             customers.push_back(customer(query.value(0).toString(), query.value(1).toString(), query.value(2).toString(),
                                      query.value(3).toString(), query.value(4).toString(), query.value(5).toString(),
-                                     query.value(6).toString(), query.value(7).toString(), query.value(8).toString()));
+                                     query.value(6).toString(), query.value(7).toString(), query.value(8).toString(),
+                                         query.value(10).toInt(), query.value(11).toInt(), query.value(12).toInt()));
     }
 }
 

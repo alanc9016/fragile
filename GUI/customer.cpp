@@ -13,7 +13,10 @@ customer::customer():
     interest("default"),
     testimonial("default testimonial"),
     requested("not requested"),
-    isActive(true)
+    isActive(true),
+    robot1(0),
+    robot2(0),
+    robot3(0)
 {}
 /**
  * @brief customer
@@ -37,8 +40,10 @@ customer::customer():
  * @param i
  * requested will be set to i
  */
-customer::customer(QString a, QString b , QString c, QString d, QString e, QString f, QString g, QString h, QString i):
-    name(a), street(b), city(c), state(d), zip(e), status(f), interest(g), testimonial(h), requested(i), isActive(true)
+customer::customer(QString a, QString b , QString c, QString d, QString e, QString f, QString g, QString h, QString i,
+                   int r1, int r2, int r3):
+    name(a), street(b), city(c), state(d), zip(e), status(f), interest(g), testimonial(h), requested(i), isActive(true),
+    robot1(r1), robot2(r2),robot3(r3)
 {}
 
 /**
@@ -57,7 +62,7 @@ customer::customer(QString a, QString b , QString c, QString d, QString e, QStri
  */
 customer::customer(QString nm, QString str, QString cty, QString sta, QString zp):
     name(nm), street(str), city(cty), state(sta), zip(zp), status("nice to have"), interest("somewhat interested"),
-    testimonial(""), requested("not requested"), isActive(true)
+    testimonial(""), requested("not requested"), isActive(true),robot1(0),robot2(0),robot3(0)
 {}
 
 /**
@@ -159,6 +164,33 @@ QString customer::getRequested() const
 bool customer::getActive() const
 {
     return isActive;
+}
+/**
+ * @brief customer::getRobot1
+ * @return
+ * amount of robot1's ordered
+ */
+int customer::getRobot1() const
+{
+    return robot1;
+}
+/**
+ * @brief customer::getRobot2
+ * @return
+ * amount of robot2's ordered
+ */
+int customer::getRobot2() const
+{
+    return robot2;
+}
+/**
+ * @brief customer::getRobot3
+ * @return
+ * amount of robot3's ordered
+ */
+int customer::getRobot3() const
+{
+    return robot3;
 }
 
 /**
@@ -262,6 +294,7 @@ void customer:: setActive(bool a)
 }
 
 /**
+<<<<<<< HEAD
  * @brief customer::printCustomer
  * @param
  *
@@ -270,3 +303,29 @@ void customer:: printCustomer()const
 {
     qDebug() << "Name: " << getName() << endl;
 }
+=======
+ * @brief customer::setRobot1
+ * @param r
+ */
+void customer::setRobot1(int r)
+{
+    robot1 = r;
+}
+/**
+ * @brief customer::setRobot2
+ * @param r
+ */
+void customer::setRobot2(int r)
+{
+    robot2 = r;
+}
+/**
+ * @brief customer::setRobot3
+ * @param r
+ */
+void customer::setRobot3(int r)
+{
+    robot3 = r;
+}
+
+>>>>>>> d58d6e84d29f77fca8dc424ce72635f2f101473c
