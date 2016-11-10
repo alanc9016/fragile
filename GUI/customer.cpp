@@ -294,18 +294,27 @@ void customer:: setActive(bool a)
 }
 
 /**
-<<<<<<< HEAD
  * @brief customer::printCustomer
  * @param
  *
  */
 void customer:: printCustomer()const
 {
-    qDebug() << "Name: " << getName() << endl;
+     QTextStream(stdout) << "\nName:       " << getName();
+     QTextStream(stdout) << "\nStreet:     " << getStreet();
+     QTextStream(stdout) << "\nCity:       " << getCity();
+     QTextStream(stdout) << "\nState:      " << getState();
+     QTextStream(stdout) << "\nZip:        " << getZip();
+     QTextStream(stdout) << "\nInterest:   " << getInterest();
+     QTextStream(stdout) << "\nStatus:     " << getStatus();
+     QTextStream(stdout) << "\nTestimonial " << getTestimonial();
+     QTextStream(stdout) << "\nRequested:  " << getRequested();
+     QTextStream(stdout) << "\nActive:     " << getActive();
+     QTextStream(stdout) << "\n";
+
 }
-=======
- * @brief customer::setRobot1
- * @param r
+/** @brief customer::setRobot1
+ *  @param r
  */
 void customer::setRobot1(int r)
 {
@@ -328,4 +337,3 @@ void customer::setRobot3(int r)
     robot3 = r;
 }
 
->>>>>>> d58d6e84d29f77fca8dc424ce72635f2f101473c

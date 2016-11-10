@@ -150,7 +150,6 @@ public:
      * bool of whether customer is active or not
      */
     bool getActive() const;
-<<<<<<< HEAD
 
     /**
      * @brief printCustomer
@@ -159,7 +158,6 @@ public:
      * mainly for testing
      */
     void printCustomer()const;
-=======
     /**
      * @brief getRobot1
      * @return
@@ -178,7 +176,6 @@ public:
      * int of number of robot3's ordered
      */
     int getRobot3() const;
->>>>>>> d58d6e84d29f77fca8dc424ce72635f2f101473c
 };
 
 /**
