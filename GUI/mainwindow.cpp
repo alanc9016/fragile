@@ -20,9 +20,19 @@ MainWindow::~MainWindow()
  * from which they can log into the admin portal by inputting
  * their log-in information.
  **/
-void MainWindow::on_adminLogBtn_clicked()
+void MainWindow::on_adminLoginBtn_clicked()
 {
+    ui->stackedWidget->setCurrentWidget(ui->adminLoginPage);
+}
 
+/**
+ * @brief MainWindow::on_backBtn_clicked
+ * -------------------------------------------------------------
+ *
+ **/
+void MainWindow::on_backBtn_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->landingPage);
 }
 
 /**
@@ -37,7 +47,7 @@ void MainWindow::on_helpBtn_clicked()
 
     help.information(this,"Instructions","To purchase a robot click the \"Purchase a Robot\" button,\n"
                                          "although if you're an administrator, click on the \"Admin?\" "
-                                         "button to be directed to the login page.";
+                                         "button to be directed to the login page.");
 }
 
 /**
@@ -51,5 +61,6 @@ void MainWindow::on_purchaseBtn_clicked()
 {
 
 }
+
 
 
