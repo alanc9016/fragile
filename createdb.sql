@@ -9,7 +9,10 @@ CREATE TABLE "customer" (
 	`status`	VARCHAR(50) NOT NULL DEFAULT 'nice to have',
 	`testimonial`	VARCHAR(300),
 	`requested`	VARCHAR(50) NOT NULL DEFAULT 'not requested',
-	`isActive` INTEGER NOT NULL DEFAULT 1
+	`isActive` INTEGER NOT NULL DEFAULT 1,
+	`robot1` INTEGER NOT NULL DEFAULT 0,
+	`robot2` INTEGER NOT NULL DEFAULT 0,
+	`robot3` INTEGER NOT NULL DEFAULT 0
 );
 CREATE TABLE "user" (
 	`name` VARCHAR(50) PRIMARY KEY UNIQUE,
