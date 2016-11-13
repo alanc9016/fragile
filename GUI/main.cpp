@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    irobots.printCustomers();
+//    irobots.printCustomers();
 
     return a.exec();
 }
