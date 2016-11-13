@@ -200,6 +200,8 @@ int customer::getRobot3() const
  */
 void customer::setName(QString n)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET name='"+n+"' where name='"+name+"'");
     name = n;
 }
 
@@ -210,6 +212,8 @@ void customer::setName(QString n)
  */
 void customer::setStreet(QString s)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET street='"+s+"' where name='"+name+"'");
     street = s;
 }
 
@@ -220,6 +224,8 @@ void customer::setStreet(QString s)
  */
 void customer::setCity(QString c)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET city='"+c+"' where name='"+name+"'");
     city = c;
 }
 
@@ -230,6 +236,8 @@ void customer::setCity(QString c)
  */
 void customer::setState(QString s)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET state='"+s+"' where name='"+name+"'");
     state = s;
 }
 
@@ -240,6 +248,8 @@ void customer::setState(QString s)
  */
 void customer::setZip(QString z)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET zip='"+z+"' where name='"+name+"'");
     zip = z;
 }
 
@@ -250,6 +260,8 @@ void customer::setZip(QString z)
  */
 void customer::setStatus(QString s)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET status='"+s+"' where name='"+name+"'");
     status = s;
 }
 
@@ -260,6 +272,8 @@ void customer::setStatus(QString s)
  */
 void customer::setInterest(QString i)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET interest='"+i+"' where name='"+name+"'");
     interest = i;
 }
 
@@ -270,6 +284,8 @@ void customer::setInterest(QString i)
  */
 void customer::setTestimonial(QString t)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET testimonial='"+t+"' where name='"+name+"'");
     testimonial = t;
 }
 
@@ -280,6 +296,8 @@ void customer::setTestimonial(QString t)
  */
 void customer::setRequested(QString r)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET requested='"+r+"' where name='"+name+"'");
     requested = r;
 }
 
@@ -290,6 +308,8 @@ void customer::setRequested(QString r)
  */
 void customer:: setActive(bool a)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET isActive='"+QString::number(a)+"' where name='"+name+"'");
     isActive = a;
 }
 
@@ -299,6 +319,8 @@ void customer:: setActive(bool a)
  */
 void customer::setRobot1(int r)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET robot1='"+QString::number(r)+"' where name='"+name+"'");
     robot1 = r;
 }
 /**
@@ -307,6 +329,8 @@ void customer::setRobot1(int r)
  */
 void customer::setRobot2(int r)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET robot2='"+QString::number(r)+"' where name='"+name+"'");
     robot2 = r;
 }
 /**
@@ -315,6 +339,8 @@ void customer::setRobot2(int r)
  */
 void customer::setRobot3(int r)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET robot3='"+QString::number(r)+"' where name='"+name+"'");
     robot3 = r;
 }
 

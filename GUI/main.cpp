@@ -13,6 +13,8 @@ int main(int argc, char *argv[])
     QTextStream(stdout) << QDir::currentPath() << endl;
     customerlist irobots;
     QTextStream(stdout) << "zip of item in list " << irobots.getCustomer("FBI").getZip();
+    irobots.getCustomer("FBI").setName("Barak Obama");
+    QTextStream(stdout) << "Updated name of customer " << irobots.getCustomer("Barak Obama").getName();
     QApplication a(argc, argv);
     MainWindow w;
     w.show();

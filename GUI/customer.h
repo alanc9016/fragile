@@ -201,11 +201,6 @@ public:
      */
     void deleteCustomer(QString);
     /**
-     * @brief readDB
-     * read from database file and add to list
-     */
-    void readDB();
-    /**
      * @brief printCustomers
      * print customers, not sure what to print so we will leave prototype for now
      */
@@ -215,11 +210,6 @@ public:
      * print key customers, not sure what to print so we will leave prototype for now
      */
     void printKeyCustomers() const;
-    /**
-     * @brief printToFile
-     * print to file, not sure if we will need this
-     */
-    void printToFile() const;
 };
 
 #endif
