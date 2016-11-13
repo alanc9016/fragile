@@ -296,7 +296,7 @@ void customer:: setActive(bool a)
 /**
  * @brief customer::printCustomer
  * @param
- *
+ * prints out individual customer
  */
 void customer:: printCustomer()const
 {
