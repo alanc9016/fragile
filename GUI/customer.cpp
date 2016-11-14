@@ -1,4 +1,5 @@
 #include "customer.h"
+#include "mainwindow.h"
 /**
  * @brief customer
  * Default constructor/never stored in db

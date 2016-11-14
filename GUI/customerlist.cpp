@@ -1,4 +1,5 @@
 #include "customer.h"
+#include "mainwindow.h"
 customerlist::customerlist()
 {
     QSqlQuery query;
@@ -67,6 +68,7 @@ void customerlist::deleteCustomer(QString s)
             QSqlQuery query;
             query.exec("UPDATE customer set isActive=0 where name="+customers.at(i).getName());
             customers.remove(i);
+            notDeleted = false;
         }
         ++it;
         ++i;

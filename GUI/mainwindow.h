@@ -11,7 +11,7 @@
 #include <iostream>
 #include <QMessageBox>
 #include <QRegExp>
-
+#include "user.h"
 #include "customer.h"
 
 namespace Ui {
@@ -24,6 +24,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    customerlist irobots;
     ~MainWindow();
 
 private slots:
