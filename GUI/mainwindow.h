@@ -12,7 +12,7 @@
 #include <iostream>
 #include <QMessageBox>
 #include <QRegExp>
-
+#include <QDebug>
 #include "customer.h"
 
 namespace Ui {

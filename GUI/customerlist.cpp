@@ -47,3 +47,11 @@ void customerlist::printCustomers()const
         it++;
     }
 }
+
+ostream& operator <<(ostream& output, const customer& outputCostumer)
+{
+    output << "Name\n";
+    //output << outputCostumer.getName();
+
+    return output;
+}

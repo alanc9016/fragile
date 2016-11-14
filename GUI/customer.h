@@ -1,6 +1,9 @@
 #ifndef CUSTOMER
 #define CUSTOMER
 #include "mainwindow.h"
+#include <iostream>
+using namespace std;
+
 /**
  * @brief The customer class
  */
@@ -228,6 +231,8 @@ public:
      * print to file, not sure if we will need this
      */
     void printToFile() const;
+
+    friend ostream& operator << (ostream& output,customer& outputCoustmer);
 };
 
 #endif
