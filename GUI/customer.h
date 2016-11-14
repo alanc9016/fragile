@@ -1,6 +1,18 @@
 #ifndef CUSTOMER
 #define CUSTOMER
-#include "mainwindow.h"
+
+#include <QMainWindow>
+#include <QFileInfo>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QtSql>
+#include <QTextStream>
+#include <QVector>
+#include <iostream>
+#include <QMessageBox>
+#include <QRegExp>
+
+
 /**
  * @brief The customer class
  */
