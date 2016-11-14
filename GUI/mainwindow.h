@@ -44,6 +44,8 @@ private slots:
     void on_addDeleteCustomerBtn_clicked();
     void on_updateListBtn_clicked();
 
+    void on_purchasePushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

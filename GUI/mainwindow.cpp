@@ -1,11 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "customer.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
 }
 
 MainWindow::~MainWindow()
@@ -173,4 +175,44 @@ void MainWindow::on_addDeleteCustomerBtn_clicked()
 void MainWindow::on_updateListBtn_clicked()
 {
 
+}
+
+//Ordering the iRobots
+void MainWindow::on_purchasePushButton_clicked()
+{
+    QString namePurchaser = ui->namePurchaserLineEdit->text();
+    customer verifiedCustomer;
+
+    qDebug() << "\n\nnamePurchaser: " << namePurchaser << endl;
+
+    try
+    {
+        verifiedCustomer = irobots.getCustomer(namePurchaser);
+
+        qDebug() << "verifiedCustomer.getName(): " << verifiedCustomer.getName() << endl;
+        qDebug() << "ui->numRobot1Purch->currentText(): " << ui->numRobot1Purch->currentText() << endl;
+        qDebug() << "ui->numRobot2Purch->currentText(): " << ui->numRobot2Purch->currentText() << endl;
+        qDebug() << "ui->numRobot3Purch->currentText(): " << ui->numRobot3Purch->currentText() << endl;
+
+        //If no robots are selected to be purchased but purchase button is still clicked..
+        if(ui->numRobot1Purch->currentText()=="0" && ui->numRobot2Purch->currentText()=="0" && ui->numRobot3Purch->currentText()=="0")
+        {
+            QMessageBox::warning(this,"ERROR","Must purchase at least one robot.");
+        }
+        else
+        {
+            //Updating number of robots bought
+            verifiedCustomer.setRobot1(ui->numRobot1Purch->currentText().toInt());
+            verifiedCustomer.setRobot2(ui->numRobot2Purch->currentText().toInt());
+            verifiedCustomer.setRobot3(ui->numRobot3Purch->currentText().toInt());
+
+            QMessageBox::information(this,"Success","Your order has been submitted, thank you!");
+
+        }
+
+    }
+    catch (QString)
+    {
+        QMessageBox::warning(this,"ERROR","Customer not found!");
+    }
 }
