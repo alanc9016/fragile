@@ -1,4 +1,5 @@
 #include "customer.h"
+#include "mainwindow.h"
 customerlist::customerlist()
 {
     QSqlQuery query;
@@ -34,5 +35,42 @@ customer customerlist::getCustomer(const QString& nm)
             return *it;
         }
     }
+    throw QString("Error: No Customer by name of " + nm + " exists!");
     return customer();
+}
+
+/**
+ * @brief customerlist::addCustomer
+ * @param c
+ * customer to be added to list
+ */
+void customerlist::addCustomer(const customer& c)
+{
+    QSqlQuery query;
+    query.exec("INSERT INTO customer (name, street, city, state, zip, interest,"
+               "status, testimonial, requested, isActive, robot1, robot2, robot3)"
+               "VALUES('"+c.getName()+"','"+c.getStreet()+"','"+c.getCity()+"',"
+               "'"+c.getZip()+"','"+c.getInterest()+"','"+c.getStatus()+"','"+c.getTestimonial()+"',"
+               "'"+c.getRequested()+"',"+QString::number(c.getActive())+","+
+               QString::number(c.getRobot1())+","+QString::number(c.getRobot2())+","+
+               QString::number(c.getRobot3())+")");
+    customers.push_back(c);
+}
+void customerlist::deleteCustomer(QString s)
+{
+    auto it = customers.begin();
+    int i = 0;
+    bool notDeleted = true;
+    while(it != customers.end() && notDeleted)
+    {
+        if(it->getName() == s)
+        {
+            QSqlQuery query;
+            query.exec("UPDATE customer set isActive=0 where name="+customers.at(i).getName());
+            customers.remove(i);
+            notDeleted = false;
+        }
+        ++it;
+        ++i;
+    }
 }

@@ -11,7 +11,7 @@
 #include <iostream>
 #include <QMessageBox>
 #include <QRegExp>
-
+#include "user.h"
 #include "customer.h"
 
 namespace Ui {
