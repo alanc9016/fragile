@@ -1,4 +1,5 @@
 #include "customer.h"
+#include "mainwindow.h"
 /**
  * @brief customer
  * Default constructor/never stored in db
@@ -13,7 +14,10 @@ customer::customer():
     interest("default"),
     testimonial("default testimonial"),
     requested("not requested"),
-    isActive(true)
+    isActive(true),
+    robot1(0),
+    robot2(0),
+    robot3(0)
 {}
 /**
  * @brief customer
@@ -37,8 +41,10 @@ customer::customer():
  * @param i
  * requested will be set to i
  */
-customer::customer(QString a, QString b , QString c, QString d, QString e, QString f, QString g, QString h, QString i):
-    name(a), street(b), city(c), state(d), zip(e), status(f), interest(g), testimonial(h), requested(i), isActive(true)
+customer::customer(QString a, QString b , QString c, QString d, QString e, QString f, QString g, QString h, QString i,
+                   int r1, int r2, int r3):
+    name(a), street(b), city(c), state(d), zip(e), status(f), interest(g), testimonial(h), requested(i), isActive(true),
+    robot1(r1), robot2(r2),robot3(r3)
 {}
 
 /**
@@ -57,7 +63,7 @@ customer::customer(QString a, QString b , QString c, QString d, QString e, QStri
  */
 customer::customer(QString nm, QString str, QString cty, QString sta, QString zp):
     name(nm), street(str), city(cty), state(sta), zip(zp), status("nice to have"), interest("somewhat interested"),
-    testimonial(""), requested("not requested"), isActive(true)
+    testimonial(""), requested("not requested"), isActive(true),robot1(0),robot2(0),robot3(0)
 {}
 
 /**
@@ -160,6 +166,33 @@ bool customer::getActive() const
 {
     return isActive;
 }
+/**
+ * @brief customer::getRobot1
+ * @return
+ * amount of robot1's ordered
+ */
+int customer::getRobot1() const
+{
+    return robot1;
+}
+/**
+ * @brief customer::getRobot2
+ * @return
+ * amount of robot2's ordered
+ */
+int customer::getRobot2() const
+{
+    return robot2;
+}
+/**
+ * @brief customer::getRobot3
+ * @return
+ * amount of robot3's ordered
+ */
+int customer::getRobot3() const
+{
+    return robot3;
+}
 
 /**
  * @brief customer::setName
@@ -168,6 +201,8 @@ bool customer::getActive() const
  */
 void customer::setName(QString n)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET name='"+n+"' where name='"+name+"'");
     name = n;
 }
 
@@ -178,6 +213,8 @@ void customer::setName(QString n)
  */
 void customer::setStreet(QString s)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET street='"+s+"' where name='"+name+"'");
     street = s;
 }
 
@@ -188,6 +225,8 @@ void customer::setStreet(QString s)
  */
 void customer::setCity(QString c)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET city='"+c+"' where name='"+name+"'");
     city = c;
 }
 
@@ -198,6 +237,8 @@ void customer::setCity(QString c)
  */
 void customer::setState(QString s)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET state='"+s+"' where name='"+name+"'");
     state = s;
 }
 
@@ -208,6 +249,8 @@ void customer::setState(QString s)
  */
 void customer::setZip(QString z)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET zip='"+z+"' where name='"+name+"'");
     zip = z;
 }
 
@@ -218,6 +261,8 @@ void customer::setZip(QString z)
  */
 void customer::setStatus(QString s)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET status='"+s+"' where name='"+name+"'");
     status = s;
 }
 
@@ -228,6 +273,8 @@ void customer::setStatus(QString s)
  */
 void customer::setInterest(QString i)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET interest='"+i+"' where name='"+name+"'");
     interest = i;
 }
 
@@ -238,6 +285,8 @@ void customer::setInterest(QString i)
  */
 void customer::setTestimonial(QString t)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET testimonial='"+t+"' where name='"+name+"'");
     testimonial = t;
 }
 
@@ -248,6 +297,8 @@ void customer::setTestimonial(QString t)
  */
 void customer::setRequested(QString r)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET requested='"+r+"' where name='"+name+"'");
     requested = r;
 }
 
@@ -258,5 +309,39 @@ void customer::setRequested(QString r)
  */
 void customer:: setActive(bool a)
 {
+    QSqlQuery query;
+    query.exec("UPDATE customer SET isActive='"+QString::number(a)+"' where name='"+name+"'");
     isActive = a;
 }
+
+/**
+ * @brief customer::setRobot1
+ * @param r
+ */
+void customer::setRobot1(int r)
+{
+    QSqlQuery query;
+    query.exec("UPDATE customer SET robot1='"+QString::number(r)+"' where name='"+name+"'");
+    robot1 = r;
+}
+/**
+ * @brief customer::setRobot2
+ * @param r
+ */
+void customer::setRobot2(int r)
+{
+    QSqlQuery query;
+    query.exec("UPDATE customer SET robot2='"+QString::number(r)+"' where name='"+name+"'");
+    robot2 = r;
+}
+/**
+ * @brief customer::setRobot3
+ * @param r
+ */
+void customer::setRobot3(int r)
+{
+    QSqlQuery query;
+    query.exec("UPDATE customer SET robot3='"+QString::number(r)+"' where name='"+name+"'");
+    robot3 = r;
+}
+

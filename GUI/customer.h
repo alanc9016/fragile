@@ -1,6 +1,14 @@
 #ifndef CUSTOMER
 #define CUSTOMER
-#include "mainwindow.h"
+#include <QFileInfo>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QtSql>
+#include <QTextStream>
+#include <QVector>
+#include <iostream>
+#include <QMessageBox>
+#include <QRegExp>
 /**
  * @brief The customer class
  */
@@ -17,6 +25,9 @@ private:
     QString testimonial;///> Testimonial of Customer (default null)
     QString requested;///> Status of requested pamphlet by customer
     bool isActive;///> 1 active, 0 inactive or deleted
+    int robot1;
+    int robot2;
+    int robot3;
 public:
     /**
      * @brief customer
@@ -29,7 +40,7 @@ public:
      * Constructor with parameters will construct a customer object with all values
      * given. May not be used as much
      */
-    customer(QString, QString, QString, QString, QString, QString, QString, QString, QString);
+    customer(QString, QString, QString, QString, QString, QString, QString, QString, QString, int r1, int r2, int r3);
     /**
      * @brief customer
      * Customer constructor that will take name and address. Will most likely be used
@@ -75,6 +86,18 @@ public:
      * @brief setActive
      */
     void setActive(bool);
+    /**
+     * @brief setRobot1
+     */
+    void setRobot1(int);
+    /**
+     * @brief setRobot2
+     */
+    void setRobot2(int);
+    /**
+     * @brief setRobot3
+     */
+    void setRobot3(int);
     /**
      * @brief getName
      * @return
@@ -135,6 +158,24 @@ public:
      * bool of whether customer is active or not
      */
     bool getActive() const;
+    /**
+     * @brief getRobot1
+     * @return
+     * int of number of robot1's ordered
+     */
+    int getRobot1() const;
+    /**
+     * @brief getRobot2
+     * @return
+     * int of number of robot2's ordered
+     */
+    int getRobot2() const;
+    /**
+     * @brief getRobot3
+     * @return
+     * int of number of robot3's ordered
+     */
+    int getRobot3() const;
 };
 
 /**
@@ -168,11 +209,6 @@ public:
      */
     void deleteCustomer(QString);
     /**
-     * @brief readDB
-     * read from database file and add to list
-     */
-    void readDB();
-    /**
      * @brief printCustomers
      * print customers, not sure what to print so we will leave prototype for now
      */
@@ -182,11 +218,6 @@ public:
      * print key customers, not sure what to print so we will leave prototype for now
      */
     void printKeyCustomers() const;
-    /**
-     * @brief printToFile
-     * print to file, not sure if we will need this
-     */
-    void printToFile() const;
 };
 
 #endif

@@ -17,9 +17,11 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     database.cpp \
     customer.cpp \
-    customerlist.cpp
+    customerlist.cpp \
+    user.cpp
 
 HEADERS  += mainwindow.h \
-    customer.h
+    customer.h \
+    user.h
 
 FORMS    += mainwindow.ui
