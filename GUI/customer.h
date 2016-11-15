@@ -25,9 +25,9 @@ private:
     QString testimonial;///> Testimonial of Customer (default null)
     QString requested;///> Status of requested pamphlet by customer
     bool isActive;///> 1 active, 0 inactive or deleted
-    int robot1;
-    int robot2;
-    int robot3;
+    int robot1;///> number of robot1's ordered
+    int robot2;///> number of robot2's ordered
+    int robot3;///> number of robot3's ordered
 public:
     /**
      * @brief customer
