@@ -1,11 +1,7 @@
 #ifndef CUSTOMER
 #define CUSTOMER
-<<<<<<< HEAD
-#include "mainwindow.h"
-#include <iostream>
-using namespace std;
 
-=======
+
 #include <QFileInfo>
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -15,7 +11,7 @@ using namespace std;
 #include <iostream>
 #include <QMessageBox>
 #include <QRegExp>
->>>>>>> 28af310d5e8d7affd5591c3f688dcd2bad193552
+
 /**
  * @brief The customer class
  */
@@ -233,16 +229,15 @@ public:
      * print key customers, not sure what to print so we will leave prototype for now
      */
     void printKeyCustomers() const;
-<<<<<<< HEAD
+
     /**
      * @brief printToFile
      * print to file, not sure if we will need this
      */
     void printToFile() const;
 
-    friend ostream& operator << (ostream& output,customer& outputCoustmer);
-=======
->>>>>>> 28af310d5e8d7affd5591c3f688dcd2bad193552
+    //friend ostream& operator << (ostream& output,customer& outputCoustmer);
+
 };
 
 #endif

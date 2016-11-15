@@ -9,15 +9,12 @@
  */
 int main(int argc, char *argv[])
 {
-    createDatabase();
-<<<<<<< HEAD
+      createDatabase();
 //    QTextStream(stdout) << QDir::currentPath() << endl;
     customerlist irobots;
     //QTextStream(stdout) << "zip of item in list " << irobots.getCustomer("FBI").getZip();
-=======
     QTextStream(stdout) << QDir::currentPath() << endl;
 
->>>>>>> 28af310d5e8d7affd5591c3f688dcd2bad193552
     QApplication a(argc, argv);
     MainWindow w;
     w.show();

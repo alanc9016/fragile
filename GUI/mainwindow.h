@@ -12,11 +12,8 @@
 #include <iostream>
 #include <QMessageBox>
 #include <QRegExp>
-<<<<<<< HEAD
 #include <QDebug>
-=======
 #include "user.h"
->>>>>>> 28af310d5e8d7affd5591c3f688dcd2bad193552
 #include "customer.h"
 
 namespace Ui {

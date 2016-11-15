@@ -39,7 +39,6 @@ customer customerlist::getCustomer(const QString& nm)
     return customer();
 }
 
-<<<<<<< HEAD
 void customerlist::printCustomers()const
 {
     QVector<customer>::const_iterator it = customers.begin();
@@ -51,13 +50,12 @@ void customerlist::printCustomers()const
     }
 }
 
-ostream& operator <<(ostream& output, const customer& outputCostumer)
-{
-    output << "Name\n";
+//ostream& operator <<(ostream& output, const customer& outputCostumer)
+//{
+  //  output << "Name\n";
     //output << outputCostumer.getName();
 
-    return output;
-=======
+    //return output;
 /**
  * @brief customerlist::addCustomer
  * @param c
@@ -92,5 +90,4 @@ void customerlist::deleteCustomer(QString s)
         ++it;
         ++i;
     }
->>>>>>> 28af310d5e8d7affd5591c3f688dcd2bad193552
 }
