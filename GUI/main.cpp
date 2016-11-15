@@ -10,12 +10,27 @@
 int main(int argc, char *argv[])
 {
     createDatabase();
+<<<<<<< HEAD
 //    QTextStream(stdout) << QDir::currentPath() << endl;
     customerlist irobots;
     //QTextStream(stdout) << "zip of item in list " << irobots.getCustomer("FBI").getZip();
+=======
+    QTextStream(stdout) << QDir::currentPath() << endl;
+
+>>>>>>> 28af310d5e8d7affd5591c3f688dcd2bad193552
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
+    try{
+        user* test = new user("admin","admin");
+        user* ad = new admin(*test);
+        test = ad;
+        QTextStream(stdout) << "\n" << QString::number(test->elevation()) << "\n";
+    }
+    catch(QString ex){
+        QTextStream(stdout) << "\n" << ex << "\n";
+    }
+
 
     irobots.printCustomers();
 

@@ -1,9 +1,21 @@
 #ifndef CUSTOMER
 #define CUSTOMER
+<<<<<<< HEAD
 #include "mainwindow.h"
 #include <iostream>
 using namespace std;
 
+=======
+#include <QFileInfo>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QtSql>
+#include <QTextStream>
+#include <QVector>
+#include <iostream>
+#include <QMessageBox>
+#include <QRegExp>
+>>>>>>> 28af310d5e8d7affd5591c3f688dcd2bad193552
 /**
  * @brief The customer class
  */
@@ -212,11 +224,6 @@ public:
      */
     void deleteCustomer(QString);
     /**
-     * @brief readDB
-     * read from database file and add to list
-     */
-    void readDB();
-    /**
      * @brief printCustomers
      * print customers, not sure what to print so we will leave prototype for now
      */
@@ -226,6 +233,7 @@ public:
      * print key customers, not sure what to print so we will leave prototype for now
      */
     void printKeyCustomers() const;
+<<<<<<< HEAD
     /**
      * @brief printToFile
      * print to file, not sure if we will need this
@@ -233,6 +241,8 @@ public:
     void printToFile() const;
 
     friend ostream& operator << (ostream& output,customer& outputCoustmer);
+=======
+>>>>>>> 28af310d5e8d7affd5591c3f688dcd2bad193552
 };
 
 #endif

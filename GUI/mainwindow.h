@@ -12,7 +12,11 @@
 #include <iostream>
 #include <QMessageBox>
 #include <QRegExp>
+<<<<<<< HEAD
 #include <QDebug>
+=======
+#include "user.h"
+>>>>>>> 28af310d5e8d7affd5591c3f688dcd2bad193552
 #include "customer.h"
 
 namespace Ui {
@@ -25,6 +29,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    customerlist irobots;
     ~MainWindow();
 
 private slots:
@@ -43,6 +48,8 @@ private slots:
     void on_viewListBtn_clicked();
     void on_addDeleteCustomerBtn_clicked();
     void on_updateListBtn_clicked();
+
+    void on_purchasePushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
