@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="landingPage">
      <widget class="QPushButton" name="adminLoginBtn">
@@ -242,8 +242,8 @@ p, li { white-space: pre-wrap; }
        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Don’t let the name fool you. Although this is the “Standard Model” our robots are setting the standard and provide a level of security unmatched by any other robot manufacturer. This model will scan and defuse any type of bomb in nearly any environment. Our software is unhackable. Our hardware is undestroyable. No bomb is safe. With the infrared, light, pressure, and dozens of more sensors this robot can handle anything with high precision. The carbon nanotube body immortalizes it. Its processing unit can hack into and diffuse bombs before it even reaches them. All with a moneyback guarantee. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.SF NS Text'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;Don’t let the name fool you. Although this is the “Standard Model” our robots are setting the standard and provide a level of security unmatched by any other robot manufacturer. This model will scan and defuse any type of bomb in nearly any environment. Our software is unhackable. Our hardware is undestroyable. No bomb is safe. With the infrared, light, pressure, and dozens of more sensors this robot can handle anything with high precision. The carbon nanotube body immortalizes it. Its processing unit can hack into and diffuse bombs before it even reaches them. All with a moneyback guarantee. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QTextEdit" name="textEdit_6">
@@ -264,8 +264,8 @@ p, li { white-space: pre-wrap; }
        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If you’re looking for a robot specifically designed to survive the eventual collapse of the sinking Saddleback SM building, the dangerous creatures lurking in the CS Lab, and the perpetually unreliable Wi-Fi connectivity then this is the robot for you. For a small additional price of only $20 your robot will be navigating tight hallways, crowded rooms, heavy doors, sniffing out any bomb in its way. You and the students of Saddleback will have an unparalleled sense of security knowing that no bomb is safe from our high tech, C++ programmed, Saddleback Specialty iRobot. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.SF NS Text'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;If you’re looking for a robot specifically designed to survive the eventual collapse of the sinking Saddleback SM building, the dangerous creatures lurking in the CS Lab, and the perpetually unreliable Wi-Fi connectivity then this is the robot for you. For a small additional price of only $20 your robot will be navigating tight hallways, crowded rooms, heavy doors, sniffing out any bomb in its way. You and the students of Saddleback will have an unparalleled sense of security knowing that no bomb is safe from our high tech, C++ programmed, Saddleback Specialty iRobot. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QTextEdit" name="textEdit_7">
@@ -286,8 +286,8 @@ p, li { white-space: pre-wrap; }
        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Our Quantum Multiverse Delight Robot provides the reliability of classical mechanics in the ever more uncertain quantum world(s). If you’re a traveler traversing through the infinite timelines of our multiverse you’ve probably become very familiar with the dangerous uncertainty constantly looming over your quantum realities. Don’t let Heisenberg and Schrodinger convince you this is inevitable! Our robot will break down all probability waves and navigate all nearby universes scanning for and protecting you from bombs. For a small additional fee of $1,000,000 no bomb that is there, or simultaneously there and not there is safe! &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.SF NS Text'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2';&quot;&gt;Our Quantum Multiverse Delight Robot provides the reliability of classical mechanics in the ever more uncertain quantum world(s). If you’re a traveler traversing through the infinite timelines of our multiverse you’ve probably become very familiar with the dangerous uncertainty constantly looming over your quantum realities. Don’t let Heisenberg and Schrodinger convince you this is inevitable! Our robot will break down all probability waves and navigate all nearby universes scanning for and protecting you from bombs. For a small additional fee of $1,000,000 no bomb that is there, or simultaneously there and not there is safe! &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QLineEdit" name="lineEdit_4">
@@ -761,6 +761,81 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="text">
        <string>Update Customer List</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="printCostumers">
+     <widget class="QTableWidget" name="tableWidget_printCustomers">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>60</y>
+        <width>661</width>
+        <height>211</height>
+       </rect>
+      </property>
+      <column>
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Street</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>City</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>State</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Zip</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Interest</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Status</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Testimonial</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Requested?</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Active?</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QPushButton" name="BackButton_printCustomers">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>320</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Go Back!</string>
       </property>
      </widget>
     </widget>

@@ -154,6 +154,49 @@ void MainWindow::on_logOutBtn_clicked()
  **/
 void MainWindow::on_viewListBtn_clicked()
 {
+    ui->stackedWidget->setCurrentWidget(ui->printCostumers);
+
+    ui->tableWidget_printCustomers->setColumnWidth(0,179);
+    ui->tableWidget_printCustomers->setColumnWidth(1,175);
+    ui->tableWidget_printCustomers->setColumnWidth(2,125);
+    ui->tableWidget_printCustomers->setColumnWidth(3,50);
+    ui->tableWidget_printCustomers->setColumnWidth(4,60);
+    ui->tableWidget_printCustomers->setColumnWidth(5,150);
+    ui->tableWidget_printCustomers->setColumnWidth(6,100);
+    ui->tableWidget_printCustomers->setColumnWidth(7,125);
+    ui->tableWidget_printCustomers->setColumnWidth(8,125);
+    ui->tableWidget_printCustomers->setColumnWidth(9,50);
+
+    ui->tableWidget_printCustomers->setEnabled(true);
+    ui->tableWidget_printCustomers->setSortingEnabled(false);
+
+    QVector<customer> allCustomers = totalCustomers.getCustomers();
+
+    QVector<customer>::iterator itCustomers = allCustomers.begin();
+
+    ui->tableWidget_printCustomers->setRowCount(allCustomers.size());
+
+    QTableWidgetItem *item;
+
+    for(int row = 0; row < signed(allCustomers.size()); row++)
+    {
+        ui->tableWidget_printCustomers->setItem(row,0,new QTableWidgetItem(itCustomers->getName()));
+        ui->tableWidget_printCustomers->setItem(row,1,new QTableWidgetItem(itCustomers->getStreet()));
+        ui->tableWidget_printCustomers->setItem(row,2,new QTableWidgetItem(itCustomers->getCity()));
+        ui->tableWidget_printCustomers->setItem(row,3,new QTableWidgetItem(itCustomers->getState()));
+        ui->tableWidget_printCustomers->setItem(row,4,new QTableWidgetItem(itCustomers->getZip()));
+        ui->tableWidget_printCustomers->setItem(row,5,new QTableWidgetItem(itCustomers->getInterest()));
+        ui->tableWidget_printCustomers->setItem(row,6,new QTableWidgetItem(itCustomers->getStatus()));
+        ui->tableWidget_printCustomers->setItem(row,7,new QTableWidgetItem(itCustomers->getTestimonial()));
+        ui->tableWidget_printCustomers->setItem(row,8,new QTableWidgetItem(itCustomers->getRequested()));
+        if(itCustomers->getActive())
+            ui->tableWidget_printCustomers->setItem(row,9,new QTableWidgetItem("Yes"));
+        else
+            ui->tableWidget_printCustomers->setItem(row,9,new QTableWidgetItem("No"));
+        itCustomers++;
+    }
+
+    ui->tableWidget_printCustomers->setSortingEnabled(true);
 
 }
 
@@ -215,4 +258,10 @@ void MainWindow::on_purchasePushButton_clicked()
     {
         QMessageBox::warning(this,"ERROR","Customer not found!");
     }
+}
+
+
+void MainWindow::on_BackButton_printCustomers_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->adminPage);
 }

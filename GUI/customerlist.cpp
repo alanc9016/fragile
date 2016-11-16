@@ -50,12 +50,6 @@ void customerlist::printCustomers()const
     }
 }
 
-//ostream& operator <<(ostream& output, const customer& outputCostumer)
-//{
-  //  output << "Name\n";
-    //output << outputCostumer.getName();
-
-    //return output;
 /**
  * @brief customerlist::addCustomer
  * @param c
@@ -90,4 +84,17 @@ void customerlist::deleteCustomer(QString s)
         ++it;
         ++i;
     }
+}
+QVector<customer> customerlist::getCustomers()const
+{
+    QVector<customer> totalCustomers;
+    QVector<customer>::const_iterator it = customers.begin();
+
+    while(it != customers.end())
+    {
+        totalCustomers.push_back((*it));
+        it++;
+    }
+
+    return totalCustomers;
 }

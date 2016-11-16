@@ -236,7 +236,12 @@ public:
      */
     void printToFile() const;
 
-    //friend ostream& operator << (ostream& output,customer& outputCoustmer);
+    /**
+     * @brief getCustomers
+     * gets all the current customers
+     * @return a vector of type customer
+     */
+    QVector<customer>getCustomers()const;
 
 };
 
