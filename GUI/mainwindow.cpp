@@ -265,3 +265,18 @@ void MainWindow::on_BackButton_printCustomers_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->adminPage);
 }
+
+void MainWindow::on_testimonialsBtn_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->TestimonialsPage);
+
+    ui->tableWidget_testimonials->setColumnWidth(0,180);
+    ui->tableWidget_testimonials->setColumnWidth(1,200);
+
+
+}
+
+void MainWindow::on_BackButton_Testimonials_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->landingPage);
+}
