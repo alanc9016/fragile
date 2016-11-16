@@ -46,15 +46,21 @@ customer customerlist::getCustomer(const QString& nm)
  */
 void customerlist::addCustomer(const customer& c)
 {
-    QSqlQuery query;
-    query.exec("INSERT INTO customer (name, street, city, state, zip, interest,"
-               "status, testimonial, requested, isActive, robot1, robot2, robot3)"
+    try{
+        getCustomer(c.getName());
+        QTextStream(stdout) << c.getName() << " already exists in database!" << endl;
+    }
+    catch(QString ex){
+        QSqlQuery query;
+        query.exec("INSERT INTO customer (name, street, city, state, zip, interest,"
+               "status, testimonial, requested, robot1, robot2, robot3)"
                "VALUES('"+c.getName()+"','"+c.getStreet()+"','"+c.getCity()+"',"
-               "'"+c.getZip()+"','"+c.getInterest()+"','"+c.getStatus()+"','"+c.getTestimonial()+"',"
-               "'"+c.getRequested()+"',"+QString::number(c.getActive())+","+
+               "'"+c.getState()+"','"+c.getZip()+"','"+c.getInterest()+"','"+c.getStatus()+"','"+c.getTestimonial()+"',"
+               "'"+c.getRequested()+"',"+
                QString::number(c.getRobot1())+","+QString::number(c.getRobot2())+","+
                QString::number(c.getRobot3())+")");
-    customers.push_back(c);
+        customers.push_back(c);
+    }
 }
 void customerlist::deleteCustomer(QString s)
 {
@@ -73,4 +79,6 @@ void customerlist::deleteCustomer(QString s)
         ++it;
         ++i;
     }
+    if(notDeleted==true)
+        throw QString("Error: No customer by name of "+s+" exists!");
 }

@@ -161,7 +161,7 @@ admin::admin(user& u)
        setValid(new QString(*(u.getValid())));
     }
     else
-        throw QString("Try entering a valid " + *getValid());
+        throw QString("Try entering a valid " + *(u.getValid()));
 }
 
 /**
