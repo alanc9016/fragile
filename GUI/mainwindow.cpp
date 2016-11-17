@@ -118,7 +118,29 @@ void MainWindow::on_adminPassLE_returnPressed()
  **/
 void MainWindow::on_loginBtn_clicked()
 {
+    user* status = new user(ui->adminUserLE->text(),
+                            ui->adminPassLE->text());
+    try
+    {
+        user* a = new admin(*status);
+        status = a;
+    }
+    catch(QString x) {
+        QMessageBox error;
 
+        error.information(this,"Invalid Report","Please enter a valid username/password.");
+
+        ui->adminUserLE->clear();
+        ui->adminPassLE->clear();
+        ui->adminUserLE->setFocus();
+    }
+
+    if(status->elevation())
+    {
+        ui->stackedWidget->setCurrentWidget(ui->adminPage);
+        ui->adminUserLE->clear();
+        ui->adminPassLE->clear();
+    }
 }
 
 //
