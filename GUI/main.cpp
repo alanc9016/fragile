@@ -24,6 +24,11 @@ int main(int argc, char *argv[])
         user* ad = new admin(*test);
         test = ad;
         QTextStream(stdout) << "\n" << QString::number(test->elevation()) << "\n";
+        w.irobots.addCustomer(customer(QString("Name"),QString("street"),QString("city"),QString("state"),
+                                   QString("9234"), QString("h"),QString("df"),QString("egf"),
+                                   QString("req"), 1, 2, 0));
+        QTextStream(stdout) << w.irobots.getCustomer("Name").getCity();
+        //w.irobots.deleteCustomer("Name");
     }
     catch(QString ex){
         QTextStream(stdout) << "\n" << ex << "\n";

@@ -166,17 +166,18 @@ void MainWindow::on_viewListBtn_clicked()
     ui->tableWidget_printCustomers->setColumnWidth(7,125);
     ui->tableWidget_printCustomers->setColumnWidth(8,125);
     ui->tableWidget_printCustomers->setColumnWidth(9,50);
+    ui->tableWidget_printCustomers->setColumnWidth(10,125);
+    ui->tableWidget_printCustomers->setColumnWidth(11,125);
+    ui->tableWidget_printCustomers->setColumnWidth(12,125);
 
     ui->tableWidget_printCustomers->setEnabled(true);
     ui->tableWidget_printCustomers->setSortingEnabled(false);
 
-    QVector<customer> allCustomers = totalCustomers.getCustomers();
+    QVector<customer> allCustomers = irobots.getCustomers();
 
     QVector<customer>::iterator itCustomers = allCustomers.begin();
 
     ui->tableWidget_printCustomers->setRowCount(allCustomers.size());
-
-    QTableWidgetItem *item;
 
     for(int row = 0; row < signed(allCustomers.size()); row++)
     {
@@ -193,6 +194,9 @@ void MainWindow::on_viewListBtn_clicked()
             ui->tableWidget_printCustomers->setItem(row,9,new QTableWidgetItem("Yes"));
         else
             ui->tableWidget_printCustomers->setItem(row,9,new QTableWidgetItem("No"));
+        ui->tableWidget_printCustomers->setItem(row,10,new QTableWidgetItem(QString::number(itCustomers->getRobot1())));
+        ui->tableWidget_printCustomers->setItem(row,11,new QTableWidgetItem(QString::number(itCustomers->getRobot2())));
+        ui->tableWidget_printCustomers->setItem(row,12,new QTableWidgetItem(QString::number(itCustomers->getRobot3())));
         itCustomers++;
     }
 
@@ -264,19 +268,4 @@ void MainWindow::on_purchasePushButton_clicked()
 void MainWindow::on_BackButton_printCustomers_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->adminPage);
-}
-
-void MainWindow::on_testimonialsBtn_clicked()
-{
-    ui->stackedWidget->setCurrentWidget(ui->TestimonialsPage);
-
-    ui->tableWidget_testimonials->setColumnWidth(0,180);
-    ui->tableWidget_testimonials->setColumnWidth(1,200);
-
-
-}
-
-void MainWindow::on_BackButton_Testimonials_clicked()
-{
-    ui->stackedWidget->setCurrentWidget(ui->landingPage);
 }
