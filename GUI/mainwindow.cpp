@@ -1,3 +1,4 @@
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "customer.h"
@@ -268,4 +269,85 @@ void MainWindow::on_purchasePushButton_clicked()
 void MainWindow::on_BackButton_printCustomers_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->adminPage);
+}
+
+void MainWindow::on_testimonialBtn_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->testimonialPage);
+
+    ui->label_error_empty_name->hide();
+    ui->label_error_empty_testimonial->hide();
+    ui->label__error_name_not_found->hide();
+
+    ui->tableWidget_Testimonials->setColumnWidth(0,179);
+    ui->tableWidget_Testimonials->setColumnWidth(1,200);
+
+    QVector<customer> testimonialCustomers = irobots.getCustomers();
+    QVector<customer>::iterator itCustomers = testimonialCustomers.begin();
+    ui->tableWidget_Testimonials->setRowCount(testimonialCustomers.size());
+
+    for(int row = 0; row < signed(testimonialCustomers.size()); row++)
+    {
+        ui->tableWidget_Testimonials->setItem(row,0,new QTableWidgetItem(itCustomers->getName()));
+        ui->tableWidget_Testimonials->setItem(row,1,new QTableWidgetItem(itCustomers->getTestimonial()));
+        itCustomers++;
+    }
+}
+
+void MainWindow::on_BackButton_testimonial_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->landingPage);
+}
+
+void MainWindow::on_pushButton_saveTestimonial_clicked()
+{
+    customer *temp;
+
+    if(ui->lineEdit_TestimonialName->text().isEmpty() && ui->lineEdit_testimonial->text().isEmpty())
+    {
+        ui->label_error_empty_name->show();
+        ui->label_error_empty_testimonial->show();
+    }
+    else if(ui->lineEdit_TestimonialName->text().isEmpty())
+    {
+        ui->label_error_empty_name->show();
+        ui->label_error_empty_testimonial->hide();
+    }
+
+    else if(ui->lineEdit_testimonial->text().isEmpty())
+    {
+        ui->label_error_empty_testimonial->show();
+        ui->label_error_empty_name->hide();
+    }
+
+    else
+    {
+        ui->label_error_empty_name->hide();
+        ui->label_error_empty_testimonial->hide();
+        ui->label__error_name_not_found->hide();
+
+        temp = irobots.FindCustomer(ui->lineEdit_TestimonialName->text());
+
+        if(temp == NULL)
+            ui->label__error_name_not_found->show();
+        else
+        {
+           temp->setTestimonial(ui->lineEdit_testimonial->text());
+
+           ui->tableWidget_Testimonials->setColumnWidth(0,179);
+           ui->tableWidget_Testimonials->setColumnWidth(1,200);
+
+           QVector<customer> testimonialCustomers = irobots.getCustomers();
+           QVector<customer>::iterator itCustomers = testimonialCustomers.begin();
+           ui->tableWidget_Testimonials->setRowCount(testimonialCustomers.size());
+
+           for(int row = 0; row < signed(testimonialCustomers.size()); row++)
+           {
+               ui->tableWidget_Testimonials->setItem(row,0,new QTableWidgetItem(itCustomers->getName()));
+               ui->tableWidget_Testimonials->setItem(row,1,new QTableWidgetItem(itCustomers->getTestimonial()));
+               itCustomers++;
+           }
+        }
+
+    }
 }

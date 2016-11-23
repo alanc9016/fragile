@@ -106,3 +106,11 @@ QVector<customer> customerlist::getCustomers()const
 
     return totalCustomers;
 }
+customer* customerlist::FindCustomer(QString customerName)
+{
+    for(auto i = customers.begin(); i != customers.end(); ++i)
+        if(i->getName() == customerName)
+            return &(*i);
+
+    return nullptr;
+}
