@@ -49,6 +49,12 @@ private slots:
     void on_purchasePushButton_clicked();
 
     void on_BackButton_printCustomers_clicked();
+    void on_testimonialBtn_clicked();
+
+    void on_BackButton_testimonial_clicked();
+
+    void on_pushButton_saveTestimonial_clicked();
+
 private:
     Ui::MainWindow *ui;
     customerlist totalCustomers;

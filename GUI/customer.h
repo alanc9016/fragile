@@ -243,6 +243,14 @@ public:
      */
     QVector<customer>getCustomers()const;
 
+    /**
+     * @brief FindCustomer
+     * Finds a customer in the customer list
+     * @param customerName
+     * @returns a pointer of the customer or NULL if not found
+     */
+    customer *FindCustomer(QString customerName);
+
 };
 
 #endif
