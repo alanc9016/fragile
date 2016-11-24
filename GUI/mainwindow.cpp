@@ -35,6 +35,18 @@ void MainWindow::on_helpBtn_clicked()
                                          "button to be directed to the login page.");
 }
 
+void MainWindow::on_sendMessageBtn_clicked()
+{
+    QMessageBox sent;
+
+    sent.information(this,"Thank you for contacting us.","We will get back to you as soon as possible.");
+}
+
+void MainWindow::on_contactusBtn_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->contactPage);
+}
+
 /**
  * @brief MainWindow::on_adminLogBtn_clicked
  * ------------------------------------------------------------
@@ -372,4 +384,16 @@ void MainWindow::on_pushButton_saveTestimonial_clicked()
         }
 
     }
+}
+/**
+ * @brief MainWindow::on_BackBtnContactus_2_clicked
+ */
+void MainWindow::on_BackBtnContactus_2_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->landingPage);
+    ui->firstNameEdit->clear();
+    ui->lastNameEdit->clear();
+    ui->emailEdit->clear();
+    ui->phoneEdit->clear();
+    ui->messageTextBox->clear();
 }

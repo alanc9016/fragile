@@ -33,6 +33,7 @@ private slots:
     void on_helpBtn_clicked();
     void on_purchaseBtn_clicked();
     void on_adminLoginBtn_clicked();
+    void on_contactusBtn_clicked();
 
     void on_pBackBtn_clicked();
 
@@ -54,6 +55,12 @@ private slots:
     void on_BackButton_testimonial_clicked();
 
     void on_pushButton_saveTestimonial_clicked();
+
+    void on_BackBtnContactus_clicked();
+    void on_sendMessageBtn_clicked();
+
+
+    void on_BackBtnContactus_2_clicked();
 
 private:
     Ui::MainWindow *ui;
