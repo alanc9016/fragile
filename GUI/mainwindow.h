@@ -62,6 +62,8 @@ private slots:
 
     void on_BackBtnContactus_2_clicked();
 
+    void on_requestCopyBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
     customerlist totalCustomers;
