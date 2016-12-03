@@ -56,7 +56,6 @@ private slots:
 
     void on_pushButton_saveTestimonial_clicked();
 
-    void on_BackBtnContactus_clicked();
     void on_sendMessageBtn_clicked();
 
 

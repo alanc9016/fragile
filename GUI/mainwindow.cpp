@@ -402,22 +402,21 @@ void MainWindow::on_requestCopyBtn_clicked()
 {
     //
     QString nameRequester = ui->nameRequesterLineEdit->text();
-    customer verifiedCustomer;
+    customer *verifiedCustomer;
 
     qDebug() << "\n\nnameRequester: " << nameRequester << endl;
 
     try
     {
-      verifiedCustomer = irobots.getCustomer(nameRequester);
+      verifiedCustomer = irobots.FindCustomer(nameRequester);
 
-      qDebug() << "verififedCustomer.getName(): " << verifiedCustomer.getName() << endl;
+      qDebug() << "verififedCustomer.getName(): " << verifiedCustomer->getName() << endl;
+      qDebug() << "verifiedCustomer.getRequested(): " << verifiedCustomer->getRequested() << endl;
 
-      if(verifiedCustomer.getRequested() != "requested")
+      if(verifiedCustomer->getRequested() != "requested")
       {
-          verifiedCustomer.setRequested("requested");
+          verifiedCustomer->setRequested("requested");
           QMessageBox::information(this,"Success","Copy of pamphlet sent!");
-
-          /**/executeSQLFile();
       }
       else
       {
