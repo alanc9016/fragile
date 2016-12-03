@@ -397,3 +397,46 @@ void MainWindow::on_BackBtnContactus_2_clicked()
     ui->phoneEdit->clear();
     ui->messageTextBox->clear();
 }
+
+/**
+ * @brief MainWindow::on_BackButton_editCustomers_clicked
+ * Takes you back to admin window
+ */
+void MainWindow::on_BackButton_editCustomers_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->adminPage);
+}
+
+/**
+ * @brief MainWindow::on_editCustomerButton_clicked
+ * Takes you to edit customer window
+ */
+void MainWindow::on_editCustomerButton_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->editCustomers);
+}
+
+void MainWindow::on_userInputEditCustomer_returnPressed()
+{
+   if(!ui->userInputEditCustomer->text().isEmpty())
+   {
+        QString n = ui->userInputEditCustomer->text();
+        try{
+            customer temp = irobots.getCustomer(n);
+            ui->basicTable->setItem(0,0,new QTableWidgetItem(temp.getName()));
+            ui->basicTable->setItem(0,1,new QTableWidgetItem(temp.getStreet()));
+            ui->basicTable->setItem(0,2,new QTableWidgetItem(temp.getCity()));
+            ui->basicTable->setItem(0,3,new QTableWidgetItem(temp.getState()));
+            ui->basicTable->setItem(0,4,new QTableWidgetItem(temp.getZip()));
+        }
+        catch (QString)
+        {
+            QMessageBox::warning(this,"ERROR","Customer not found!");
+        }
+   }
+}
+
+void MainWindow::on_basicTable_entered(const QModelIndex &index)
+{
+
+}

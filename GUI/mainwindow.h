@@ -56,11 +56,16 @@ private slots:
 
     void on_pushButton_saveTestimonial_clicked();
 
-    void on_BackBtnContactus_clicked();
     void on_sendMessageBtn_clicked();
 
 
     void on_BackBtnContactus_2_clicked();
+
+    void on_BackButton_editCustomers_clicked();
+
+    void on_editCustomerButton_clicked();
+
+    void on_userInputEditCustomer_returnPressed();
 
 private:
     Ui::MainWindow *ui;
