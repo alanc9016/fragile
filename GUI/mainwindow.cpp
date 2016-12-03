@@ -417,7 +417,7 @@ void MainWindow::on_requestCopyBtn_clicked()
           verifiedCustomer.setRequested("requested");
           QMessageBox::information(this,"Success","Copy of pamphlet sent!");
 
-          /**/executeSQLFile();
+//          executeSQLFile();
       }
       else
       {
