@@ -1068,7 +1068,7 @@ p, li { white-space: pre-wrap; }
        </property>
       </column>
      </widget>
-     <widget class="QTableWidget" name="custInfoTable_2">
+     <widget class="QTableWidget" name="custOrderTable">
       <property name="geometry">
        <rect>
         <x>60</x>
@@ -1098,13 +1098,6 @@ p, li { white-space: pre-wrap; }
        </property>
       </column>
      </widget>
-     <zorder>horizontalLayoutWidget</zorder>
-     <zorder>promptForCustomer</zorder>
-     <zorder>editCustomerTitle</zorder>
-     <zorder>BackButton_editCustomers</zorder>
-     <zorder>basicTable</zorder>
-     <zorder>custInfoTable</zorder>
-     <zorder>custInfoTable_2</zorder>
     </widget>
     <widget class="QWidget" name="printCostumers">
      <widget class="QTableWidget" name="tableWidget_printCustomers">

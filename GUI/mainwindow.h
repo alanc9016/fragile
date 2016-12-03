@@ -67,9 +67,12 @@ private slots:
 
     void on_userInputEditCustomer_returnPressed();
 
+    void on_basicTable_cellEntered(int row, int column);
+
 private:
     Ui::MainWindow *ui;
     customerlist totalCustomers;
+    customer *custpointer;
 };
 /**
  * @brief createDatabase

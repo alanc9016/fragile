@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    custpointer = NULL;
 }
 
 MainWindow::~MainWindow()
@@ -414,6 +414,10 @@ void MainWindow::on_BackButton_editCustomers_clicked()
 void MainWindow::on_editCustomerButton_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->editCustomers);
+    ui->basicTable->clearContents();
+    ui->custInfoTable->clearContents();
+    ui->custOrderTable->clearContents();
+    ui->userInputEditCustomer->clear();
 }
 
 void MainWindow::on_userInputEditCustomer_returnPressed()
@@ -428,6 +432,15 @@ void MainWindow::on_userInputEditCustomer_returnPressed()
             ui->basicTable->setItem(0,2,new QTableWidgetItem(temp.getCity()));
             ui->basicTable->setItem(0,3,new QTableWidgetItem(temp.getState()));
             ui->basicTable->setItem(0,4,new QTableWidgetItem(temp.getZip()));
+
+            ui->custInfoTable->setItem(0,0, new QTableWidgetItem(temp.getInterest()));
+            ui->custInfoTable->setItem(0,1, new QTableWidgetItem(temp.getStatus()));
+            ui->custInfoTable->setItem(0,2, new QTableWidgetItem(temp.getTestimonial()));
+            ui->custInfoTable->setItem(0,3, new QTableWidgetItem(temp.getRequested()));
+
+            ui->custOrderTable->setItem(0,0, new QTableWidgetItem(temp.getRobot1()));
+            ui->custOrderTable->setItem(0,1, new QTableWidgetItem(temp.getRobot2()));
+            ui->custOrderTable->setItem(0,2, new QTableWidgetItem(temp.getRobot3()));
         }
         catch (QString)
         {
@@ -436,7 +449,7 @@ void MainWindow::on_userInputEditCustomer_returnPressed()
    }
 }
 
-void MainWindow::on_basicTable_entered(const QModelIndex &index)
+void MainWindow::on_basicTable_cellEntered(int row, int column)
 {
 
 }
