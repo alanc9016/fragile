@@ -42,6 +42,10 @@ void MainWindow::on_sendMessageBtn_clicked()
     sent.information(this,"Thank you for contacting us.","We will get back to you as soon as possible.");
 }
 
+/**
+ * @brief MainWindow::on_contactusBtn_clicked
+ * contact button
+ */
 void MainWindow::on_contactusBtn_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->contactPage);
@@ -79,6 +83,7 @@ void MainWindow::on_purchaseBtn_clicked()
 /**
  * @brief MainWindow::on_pBackBtn_clicked
  * ------------------------------------------------------------
+ * go back to landing page
  *
  **/
 void MainWindow::on_pBackBtn_clicked()
@@ -246,7 +251,7 @@ void MainWindow::on_viewListBtn_clicked()
  **/
 void MainWindow::on_addDeleteCustomerBtn_clicked()
 {
-
+    ui->stackedWidget->setCurrentWidget(ui->addDelete);
 }
 
 /**
@@ -571,6 +576,32 @@ void MainWindow::on_custOrderTable_cellChanged(int row, int column)
     }
     catch(QString x){
          QMessageBox::warning(this,"ERROR",x);
+    }
+
+}
+
+/**
+ * @brief MainWindow::on_BackButton_addDelete_clicked
+ * return from add/delete page to admin page
+ */
+void MainWindow::on_BackButton_addDelete_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->adminPage);
+}
+
+void MainWindow::on_uiDeleteCust_returnPressed()
+{
+    if(!ui->uiDeleteCust->text().isEmpty())
+    {
+        try
+        {
+            irobots.deleteCustomer(ui->uiDeleteCust->text());
+            QMessageBox::information(this,"Success",
+                                     ui->uiDeleteCust->text() + " has been deleted!");
+        }
+        catch(QString x){
+             QMessageBox::warning(this,"ERROR",x);
+        }
     }
 
 }

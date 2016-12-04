@@ -19,8 +19,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>877</width>
-      <height>501</height>
+      <width>761</width>
+      <height>461</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -938,6 +938,75 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="text">
        <string>Edit a Customer</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="addDelete">
+     <widget class="QPushButton" name="BackButton_addDelete">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>400</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Go Back!</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="deleteTitle">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>20</y>
+        <width>221</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 18pt;</string>
+      </property>
+      <property name="text">
+       <string>Delete Customer</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>80</y>
+        <width>531</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="deleteLayout">
+       <item>
+        <widget class="QLabel" name="promptForDelete">
+         <property name="text">
+          <string>Enter name of customer you wish to delete: </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="uiDeleteCust"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="addTitle">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>140</y>
+        <width>191</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 18pt;</string>
+      </property>
+      <property name="text">
+       <string>Add Customer</string>
       </property>
      </widget>
     </widget>

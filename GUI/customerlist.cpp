@@ -73,6 +73,13 @@ void customerlist::addCustomer(const customer& c)
         customers.push_back(c);
     }
 }
+/**
+ * @brief customerlist::deleteCustomer
+ * deletes customer of name s from the customer list,
+ * as well as soft delete from database (set active to 0)
+ * @param s
+ * name of customer to be deleted
+ */
 void customerlist::deleteCustomer(QString s)
 {
     auto it = customers.begin();
@@ -91,7 +98,7 @@ void customerlist::deleteCustomer(QString s)
         ++i;
     }
     if(notDeleted==true)
-        throw QString("Error: No customer by name of "+s+" exists!");
+        throw QString("No customer by name of "+s+" exists!");
 }
 QVector<customer> customerlist::getCustomers()const
 {

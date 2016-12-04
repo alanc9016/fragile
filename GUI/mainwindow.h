@@ -74,6 +74,10 @@ private slots:
 
     void on_custOrderTable_cellChanged(int row, int column);
 
+    void on_BackButton_addDelete_clicked();
+
+    void on_uiDeleteCust_returnPressed();
+
 private:
     Ui::MainWindow *ui;
     customerlist totalCustomers;
