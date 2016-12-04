@@ -612,6 +612,15 @@ void MainWindow::on_addCustButton_clicked()
 {
     try
     {
+        qDebug() << "Start" << endl;
+        if(ui->addCustTable->item(0,0)->text().isEmpty()||
+                ui->addCustTable->item(0,1)->text().isEmpty()||
+                ui->addCustTable->item(0,2)->text().isEmpty()||
+                ui->addCustTable->item(0,3)->text().isEmpty()||
+                ui->addCustTable->item(0,4)->text().isEmpty()||
+                ui->addCustTable->item(0,5)->text().isEmpty())
+            throw QString("One or more of your fields are blank!");
+        qDebug() << "Second" << endl;
         QString nme = ui->addCustTable->item(0,0)->text();
         QString str = ui->addCustTable->item(0,1)->text();
         QString cty = ui->addCustTable->item(0,2)->text();
@@ -619,7 +628,7 @@ void MainWindow::on_addCustButton_clicked()
         QString zip = ui->addCustTable->item(0,4)->text();
         QString sts = ui->addCustTable->item(0,5)->text();
 
-        if(!nme.isEmpty() && !str.isEmpty() && !cty.isEmpty() && !sta.isEmpty() && !sts.isEmpty())
+        if(nme != "" && str != "" && cty!="" && sta!="" && zip != "" && sts!="")
         {
             irobots.addCustomer(customer(nme, str, cty, sta, zip, sts));
             QMessageBox::information(this, "Success!", nme + " was added to the customerlist!");
