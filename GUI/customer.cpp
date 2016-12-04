@@ -198,9 +198,12 @@ int customer::getRobot3() const
  * @brief customer::setName
  * @param n
  * the value name will be set to
+ * @exception QString() Value too large
  */
 void customer::setName(QString n)
 {
+    if(n.length() > MAXNAME)
+        throw QString("Name longer than " + QString::number(MAXNAME) + " characters.");
     QSqlQuery query;
     query.exec("UPDATE customer SET name='"+n+"' where name='"+name+"'");
     name = n;
@@ -210,9 +213,12 @@ void customer::setName(QString n)
  * @brief customer::setStreet
  * @param s
  * the value street will be set to
+ * @exception QString() Value too large
  */
 void customer::setStreet(QString s)
 {
+    if(s.length() > MAXSTREET)
+        throw QString("Street longer than " + QString::number(MAXSTREET) + " characters.");
     QSqlQuery query;
     query.exec("UPDATE customer SET street='"+s+"' where name='"+name+"'");
     street = s;
@@ -222,9 +228,15 @@ void customer::setStreet(QString s)
  * @brief customer::setCity
  * @param c
  * the value city will be set to
+ * @exception QString() Value too large
  */
 void customer::setCity(QString c)
 {
+    QRegExp ex("[a-zA-Z]*");
+    if(c.length() > MAXCITY)
+        throw QString("City longer than " + QString::number(MAXCITY) + " characters.");
+    if(!ex.exactMatch(c))
+        throw QString("City must be composed of characters only!");
     QSqlQuery query;
     query.exec("UPDATE customer SET city='"+c+"' where name='"+name+"'");
     city = c;
@@ -234,9 +246,16 @@ void customer::setCity(QString c)
  * @brief customer::setState
  * @param s
  * the value state will be set to
+ * @exception QString() Value too large or invalid characters
  */
 void customer::setState(QString s)
 {
+    QRegExp ex("[a-zA-Z]*");
+    qDebug() << s.length() << endl;
+    if(s.length() > MAXSTATE)
+        throw QString("State longer than " + QString::number(MAXSTATE) + " characters.");
+    if(!ex.exactMatch(s))
+        throw QString("State must be composed of two characters!");
     QSqlQuery query;
     query.exec("UPDATE customer SET state='"+s+"' where name='"+name+"'");
     state = s;
@@ -246,9 +265,15 @@ void customer::setState(QString s)
  * @brief customer::setZip
  * @param z
  * the value zip will be set to
+ * @exception QString() Value too large
  */
 void customer::setZip(QString z)
 {
+    QRegExp ex("\\d*");
+    if(z.length() > MAXZIP)
+        throw QString("Zip longer than " + QString::number(MAXZIP) + " characters.");
+    if(!ex.exactMatch(z))
+        throw QString("Zip can only be composed of numbers");
     QSqlQuery query;
     query.exec("UPDATE customer SET zip='"+z+"' where name='"+name+"'");
     zip = z;
@@ -258,9 +283,12 @@ void customer::setZip(QString z)
  * @brief customer::setStatus
  * @param s
  * the value status will be set to
+ * @exception QString() Value too large
  */
 void customer::setStatus(QString s)
 {
+    if(s.length() > MAXSTATUS)
+        throw QString("Status longer than " + QString::number(MAXSTATUS) + " characters.");
     QSqlQuery query;
     query.exec("UPDATE customer SET status='"+s+"' where name='"+name+"'");
     status = s;
@@ -270,9 +298,12 @@ void customer::setStatus(QString s)
  * @brief customer::setInterest
  * @param i
  * the value interest will be set to
+ * @exception QString() Value too large
  */
 void customer::setInterest(QString i)
 {
+    if(i.length() > MAXINTEREST)
+        throw QString("Interest longer than " + QString::number(MAXINTEREST) + " characters.");
     QSqlQuery query;
     query.exec("UPDATE customer SET interest='"+i+"' where name='"+name+"'");
     interest = i;
@@ -282,9 +313,12 @@ void customer::setInterest(QString i)
  * @brief customer::setTestimonial
  * @param t
  * the value testimonial will be set to
+ * @exception QString() Value too large
  */
 void customer::setTestimonial(QString t)
 {
+    if(t.length() > MAXTEST)
+        throw QString("Testimonial longer than " + QString::number(MAXTEST) + " characters.");
     QSqlQuery query;
     query.exec("UPDATE customer SET testimonial='"+t+"' where name='"+name+"'");
     testimonial = t;
@@ -294,9 +328,12 @@ void customer::setTestimonial(QString t)
  * @brief customer::setRequested
  * @param r
  * the value requested will be set to
+ * @exception QString() Value too large
  */
 void customer::setRequested(QString r)
 {
+    if(r.length() > MAXREQ)
+        throw QString("Request longer than " + QString::number(MAXREQ) + " characters.");
     QSqlQuery query;
     query.exec("UPDATE customer SET requested='"+r+"' where name='"+name+"'");
     requested = r;
@@ -336,9 +373,12 @@ void customer:: printCustomer()const
 }
 /** @brief customer::setRobot1
  *  @param r
+ * @exception QString() Value negative
  */
 void customer::setRobot1(int r)
 {
+    if(r < 0)
+        throw QString("Value " + QString::number(r) + " is negative.");
     QSqlQuery query;
     query.exec("UPDATE customer SET robot1='"+QString::number(r)+"' where name='"+name+"'");
     robot1 = r;
@@ -346,9 +386,12 @@ void customer::setRobot1(int r)
 /**
  * @brief customer::setRobot2
  * @param r
+ * @exception QString() Value negative
  */
 void customer::setRobot2(int r)
 {
+    if(r < 0)
+        throw QString("Value " + QString::number(r) + " is negative.");
     QSqlQuery query;
     query.exec("UPDATE customer SET robot2='"+QString::number(r)+"' where name='"+name+"'");
     robot2 = r;
@@ -356,9 +399,12 @@ void customer::setRobot2(int r)
 /**
  * @brief customer::setRobot3
  * @param r
+ * @exception QString() Value negative
  */
 void customer::setRobot3(int r)
 {
+    if(r < 0)
+        throw QString("Value " + QString::number(r) + " is negative.");
     QSqlQuery query;
     query.exec("UPDATE customer SET robot3='"+QString::number(r)+"' where name='"+name+"'");
     robot3 = r;

@@ -67,7 +67,12 @@ private slots:
 
     void on_userInputEditCustomer_returnPressed();
 
-    void on_basicTable_cellEntered(int row, int column);
+
+    void on_basicTable_cellChanged(int row, int column);
+
+    void on_custInfoTable_cellChanged(int row, int column);
+
+    void on_custOrderTable_cellChanged(int row, int column);
 
 private:
     Ui::MainWindow *ui;

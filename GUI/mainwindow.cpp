@@ -405,6 +405,7 @@ void MainWindow::on_BackBtnContactus_2_clicked()
 void MainWindow::on_BackButton_editCustomers_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->adminPage);
+    custpointer = NULL;
 }
 
 /**
@@ -427,6 +428,8 @@ void MainWindow::on_userInputEditCustomer_returnPressed()
         QString n = ui->userInputEditCustomer->text();
         try{
             customer temp = irobots.getCustomer(n);
+            custpointer = NULL;
+            custpointer = irobots.FindCustomer(n);
             ui->basicTable->setItem(0,0,new QTableWidgetItem(temp.getName()));
             ui->basicTable->setItem(0,1,new QTableWidgetItem(temp.getStreet()));
             ui->basicTable->setItem(0,2,new QTableWidgetItem(temp.getCity()));
@@ -438,9 +441,9 @@ void MainWindow::on_userInputEditCustomer_returnPressed()
             ui->custInfoTable->setItem(0,2, new QTableWidgetItem(temp.getTestimonial()));
             ui->custInfoTable->setItem(0,3, new QTableWidgetItem(temp.getRequested()));
 
-            ui->custOrderTable->setItem(0,0, new QTableWidgetItem(temp.getRobot1()));
-            ui->custOrderTable->setItem(0,1, new QTableWidgetItem(temp.getRobot2()));
-            ui->custOrderTable->setItem(0,2, new QTableWidgetItem(temp.getRobot3()));
+            ui->custOrderTable->setItem(0,0, new QTableWidgetItem(QString::number(temp.getRobot1())));
+            ui->custOrderTable->setItem(0,1, new QTableWidgetItem(QString::number(temp.getRobot2())));
+            ui->custOrderTable->setItem(0,2, new QTableWidgetItem(QString::number(temp.getRobot3())));
         }
         catch (QString)
         {
@@ -449,7 +452,125 @@ void MainWindow::on_userInputEditCustomer_returnPressed()
    }
 }
 
-void MainWindow::on_basicTable_cellEntered(int row, int column)
+
+/**
+ * @brief MainWindow::on_basicTable_cellChanged
+ * will allow easy, protected editing of address of customer object
+ * @param row
+ * @param column
+ */
+void MainWindow::on_basicTable_cellChanged(int row, int column)
 {
+    try{
+        if(custpointer != NULL){
+            QString tmp = ui->basicTable->item(row, column)->text();
+            switch (column) {
+            case 0:
+                if(tmp != custpointer->getName())
+                    custpointer->setName(tmp);
+                break;
+            case 1:
+                if(tmp != custpointer->getStreet())
+                    custpointer->setStreet(tmp);
+                break;
+            case 2:
+                if(tmp != custpointer->getCity())
+                    custpointer->setCity(tmp);
+                break;
+            case 3:
+                if(tmp != custpointer->getState())
+                    custpointer->setState(tmp);
+                break;
+            case 4:
+                if(tmp != custpointer->getZip())
+                    custpointer->setZip(tmp);
+                break;
+            default:
+                qDebug() << "Something went wrong" << endl;
+                qDebug() << "custpointer: " << custpointer->getName() << endl;
+                qDebug() << "row: " << row << "  col: " << column << endl;
+                break;
+            }
+        }
+    }
+    catch(QString x){
+         QMessageBox::warning(this,"ERROR",x);
+    }
+}
+
+/**
+ * @brief MainWindow::on_custInfoTable_cellChanged
+ * will allow easy, protected editing of text fields related to customer object
+ * @param row
+ * @param column
+ */
+void MainWindow::on_custInfoTable_cellChanged(int row, int column)
+{
+    try{
+        if(custpointer != NULL){
+            QString tmp = ui->custInfoTable->item(row, column)->text();
+            switch (column) {
+            case 0:
+                if(tmp != custpointer->getInterest())
+                    custpointer->setInterest(tmp);
+                break;
+            case 1:
+                if(tmp != custpointer->getStatus())
+                    custpointer->setStatus(tmp);
+                break;
+            case 2:
+                if(tmp != custpointer->getTestimonial())
+                    custpointer->setTestimonial(tmp);
+                break;
+            case 3:
+                if(tmp != custpointer->getRequested())
+                    custpointer->setRequested(tmp);
+                break;
+            default:
+                qDebug() << "Something went wrong" << endl;
+                qDebug() << "custpointer: " << custpointer->getName() << endl;
+                qDebug() << "row: " << row << "  col: " << column << endl;
+                break;
+            }
+        }
+    }
+    catch(QString x){
+         QMessageBox::warning(this,"ERROR",x);
+    }
+
+}
+
+void MainWindow::on_custOrderTable_cellChanged(int row, int column)
+{
+    try{
+        if(custpointer != NULL){
+            int tmp = ui->custOrderTable->item(row, column)->text().toInt();
+            switch (column) {
+            case 0:
+                if(tmp != custpointer->getRobot1()){
+                    custpointer->setRobot1(tmp);
+                }
+                break;
+            case 1:
+                if(tmp != custpointer->getRobot2()){
+                    custpointer->setRobot2(tmp);
+                }
+                break;
+            case 2:
+                if(tmp != custpointer->getRobot3()){
+                    custpointer->setRobot3(tmp);
+                }
+                break;
+            default:
+                qDebug() << "Something went wrong" << endl;
+                qDebug() << "custpointer: " << custpointer->getName() << endl;
+                qDebug() << "row: " << row << "  col: " << column << endl;
+                break;
+            }
+        }
+    }
+    catch(QString x){
+         QMessageBox::warning(this,"ERROR",x);
+    }
 
 }

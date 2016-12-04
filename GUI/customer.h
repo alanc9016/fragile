@@ -13,6 +13,52 @@
 #include <QRegExp>
 
 /**
+ * @brief MAXNAME
+ * maximum size of name field
+ */
+const int MAXNAME = 50;
+/**
+ * @brief MAXSTREET
+ * maximum size of street field
+ */
+const int MAXSTREET = 75;
+/**
+ * @brief MAXCITY
+ * maximum size of city field
+ */
+const int MAXCITY = 50;
+/**
+ * @brief MAXSTATE
+ * maximum size of state field
+ */
+const int MAXSTATE = 2;
+/**
+ * @brief MAXZIP
+ * maximum size of zip field
+ */
+const int MAXZIP = 5;
+/**
+ * @brief MAXINTEREST
+ * maximum size of interest field
+ */
+const int MAXINTEREST = 50;
+/**
+ * @brief MAXSTATUS
+ * maximum size of status field
+ */
+const int MAXSTATUS = 50;
+/**
+ * @brief MAXTEST
+ * maximum size of testimonial field
+ */
+const int MAXTEST = 300;
+/**
+ * @brief MAXREQ
+ * maximum size of requested field
+ */
+const int MAXREQ = 50;
+
+/**
  * @brief The customer class
  */
 class customer
