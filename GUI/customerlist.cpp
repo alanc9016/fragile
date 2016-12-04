@@ -59,9 +59,11 @@ void customerlist::addCustomer(const customer& c)
 {
     try{
         getCustomer(c.getName());
-        QTextStream(stdout) << c.getName() << " already exists in database!" << endl;
+        throw QString("Customer already exists!");
     }
     catch(QString ex){
+        if(ex == "Customer already exists!")
+            throw ex;
         QSqlQuery query;
         query.exec("INSERT INTO customer (name, street, city, state, zip, interest,"
                "status, testimonial, requested, robot1, robot2, robot3)"
@@ -90,7 +92,7 @@ void customerlist::deleteCustomer(QString s)
         if(it->getName() == s)
         {
             QSqlQuery query;
-            query.exec("UPDATE customer set isActive=0 where name="+customers.at(i).getName());
+            query.exec("UPDATE customer set isActive=0 where name='" + s + "'");
             customers.remove(i);
             notDeleted = false;
         }

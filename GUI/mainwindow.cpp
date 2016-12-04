@@ -252,6 +252,8 @@ void MainWindow::on_viewListBtn_clicked()
 void MainWindow::on_addDeleteCustomerBtn_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->addDelete);
+    ui->addCustTable->clearContents();
+    ui->uiDeleteCust->clear();
 }
 
 /**
@@ -604,4 +606,27 @@ void MainWindow::on_uiDeleteCust_returnPressed()
         }
     }
 
+}
+
+void MainWindow::on_addCustButton_clicked()
+{
+    try
+    {
+        QString nme = ui->addCustTable->item(0,0)->text();
+        QString str = ui->addCustTable->item(0,1)->text();
+        QString cty = ui->addCustTable->item(0,2)->text();
+        QString sta = ui->addCustTable->item(0,3)->text();
+        QString zip = ui->addCustTable->item(0,4)->text();
+        QString sts = ui->addCustTable->item(0,5)->text();
+
+        if(!nme.isEmpty() && !str.isEmpty() && !cty.isEmpty() && !sta.isEmpty() && !sts.isEmpty())
+        {
+            irobots.addCustomer(customer(nme, str, cty, sta, zip, sts));
+            QMessageBox::information(this, "Success!", nme + " was added to the customerlist!");
+        }
+    }
+    catch(QString ex)
+    {
+        QMessageBox::warning(this, "ERROR", ex);
+    }
 }

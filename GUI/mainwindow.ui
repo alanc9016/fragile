@@ -946,7 +946,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>320</x>
-        <y>400</y>
+        <y>370</y>
         <width>111</width>
         <height>41</height>
        </rect>
@@ -997,7 +997,7 @@ p, li { white-space: pre-wrap; }
       <property name="geometry">
        <rect>
         <x>300</x>
-        <y>140</y>
+        <y>160</y>
         <width>191</width>
         <height>41</height>
        </rect>
@@ -1007,6 +1007,64 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="text">
        <string>Add Customer</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="addCustTable">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>210</y>
+        <width>671</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <row>
+       <property name="text">
+        <string>Customer</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Street</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>City</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>State</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Zip</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Status</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QPushButton" name="addCustButton">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>310</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Submit</string>
       </property>
      </widget>
     </widget>

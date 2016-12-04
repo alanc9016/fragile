@@ -78,6 +78,8 @@ private slots:
 
     void on_uiDeleteCust_returnPressed();
 
+    void on_addCustButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     customerlist totalCustomers;

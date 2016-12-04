@@ -45,7 +45,9 @@ customer::customer(QString a, QString b , QString c, QString d, QString e, QStri
                    int r1, int r2, int r3):
     name(a), street(b), city(c), state(d), zip(e), status(f), interest(g), testimonial(h), requested(i), isActive(true),
     robot1(r1), robot2(r2),robot3(r3)
-{}
+{
+}
+
 
 /**
  * @brief customer
@@ -60,11 +62,23 @@ customer::customer(QString a, QString b , QString c, QString d, QString e, QStri
  * state will be set to sta
  * @param zp
  * zip will be set to zp
+ * @param sts
  */
-customer::customer(QString nm, QString str, QString cty, QString sta, QString zp):
-    name(nm), street(str), city(cty), state(sta), zip(zp), status("nice to have"), interest("somewhat interested"),
+customer::customer(QString nm, QString str, QString cty, QString sta, QString zp, QString sts):
+    name(nm), street(str), city(cty), state(sta), zip(zp), status(sts), interest("somewhat interested"),
     testimonial(""), requested("not requested"), isActive(true),robot1(0),robot2(0),robot3(0)
-{}
+{
+    QRegExp ex("\\d*");
+    QRegExp pr("[a-zA-Z]*");
+    if(!ex.exactMatch(zip))
+        throw QString("Zip code can only be digits!");
+    if(!pr.exactMatch(cty)||pr.exactMatch(sta))
+        throw QString("City and state can only contain letters of the alphabet.");
+    if(nm.length() > MAXNAME || str.length() > MAXSTREET || cty.length() > MAXCITY
+            || sta.length() > MAXSTATE || zp.length() > MAXZIP || sts.length() > MAXSTATUS)
+        throw QString("Too long! Name, city, status can be 50 characters, street can be 75,"
+                      " zip can be 5, and zip can be 2");
+}
 
 /**
  * @brief customer::getName

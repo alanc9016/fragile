@@ -92,9 +92,9 @@ public:
     customer(QString, QString, QString, QString, QString, QString, QString, QString, QString, int r1, int r2, int r3);
     /**
      * @brief customer
-     * Customer constructor that will take name and address. Will most likely be used
+     * Customer constructor that will take name, address, and status. Will most likely be used
      */
-    customer(QString, QString, QString, QString, QString);
+    customer(QString, QString, QString, QString, QString, QString);
     /**
      * @brief setName
      */
