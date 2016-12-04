@@ -259,7 +259,15 @@ void MainWindow::on_updateListBtn_clicked()
 
 }
 
-//Ordering the iRobots
+/**
+ * @brief MainWindow::on_purchasePushButton_clicked
+ * ------------------------------------------------------------
+ * This button submits purchases of the different robots to
+ * customers in the customer list. Will open a window if the
+ * purchase was a success or an error window otherwise (such
+ * as if no robots were selected or the customer was not found)
+ */
+
 void MainWindow::on_purchasePushButton_clicked()
 {
     QString namePurchaser = ui->namePurchaserLineEdit->text();
@@ -398,6 +406,14 @@ void MainWindow::on_BackBtnContactus_2_clicked()
     ui->messageTextBox->clear();
 }
 
+/**
+ * @brief MainWindow::on_requestCopyBtn_clicked
+ * -------------------------------------------------------
+ * This button sends a copy of the pamphlet to a customer
+ * Opens a window if it was successfully sent and opens
+ * an error window if the customer was not found or the
+ * customer had already requested the pamphlet.
+ */
 void MainWindow::on_requestCopyBtn_clicked()
 {
     //
@@ -410,22 +426,26 @@ void MainWindow::on_requestCopyBtn_clicked()
     {
       verifiedCustomer = irobots.FindCustomer(nameRequester);
 
-      qDebug() << "verififedCustomer.getName(): " << verifiedCustomer->getName() << endl;
-      qDebug() << "verifiedCustomer.getRequested(): " << verifiedCustomer->getRequested() << endl;
-
-      if(verifiedCustomer->getRequested() != "requested")
+      if(verifiedCustomer != NULL)
       {
-          verifiedCustomer->setRequested("requested");
-          QMessageBox::information(this,"Success","Copy of pamphlet sent!");
-<<<<<<< HEAD
 
-//          executeSQLFile();
-=======
->>>>>>> c28343992def6d30338553d43f645780ae5e9473
+          qDebug() << "verififedCustomer.getName(): " << verifiedCustomer->getName() << endl;
+          qDebug() << "verifiedCustomer.getRequested(): " << verifiedCustomer->getRequested() << endl;
+
+          if(verifiedCustomer->getRequested() != "requested")
+          {
+              verifiedCustomer->setRequested("requested");
+              QMessageBox::information(this,"Success","Copy of pamphlet sent!");
+
+          }
+          else
+          {
+              QMessageBox::warning(this,"ERROR","Customer has already requested this pamphlet!");
+          }
       }
       else
       {
-          QMessageBox::warning(this,"ERROR","Customer has already requested this pamphlet!");
+          QMessageBox::warning(this,"ERROR","Customer not found!\nPlease try again");
       }
     }
     catch (QString)
