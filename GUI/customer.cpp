@@ -72,7 +72,7 @@ customer::customer(QString nm, QString str, QString cty, QString sta, QString zp
     QRegExp pr("[a-zA-Z]*");
     if(!ex.exactMatch(zip))
         throw QString("Zip code can only be digits!");
-    if(!pr.exactMatch(cty)||pr.exactMatch(sta))
+    if(!pr.exactMatch(cty)||!pr.exactMatch(sta))
         throw QString("City and state can only contain letters of the alphabet.");
     if(nm.length() > MAXNAME || str.length() > MAXSTREET || cty.length() > MAXCITY
             || sta.length() > MAXSTATE || zp.length() > MAXZIP || sts.length() > MAXSTATUS)

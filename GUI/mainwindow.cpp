@@ -613,14 +613,13 @@ void MainWindow::on_addCustButton_clicked()
     try
     {
         qDebug() << "Start" << endl;
-        if(ui->addCustTable->item(0,0)->text().isEmpty()||
-                ui->addCustTable->item(0,1)->text().isEmpty()||
-                ui->addCustTable->item(0,2)->text().isEmpty()||
-                ui->addCustTable->item(0,3)->text().isEmpty()||
-                ui->addCustTable->item(0,4)->text().isEmpty()||
-                ui->addCustTable->item(0,5)->text().isEmpty())
-            throw QString("One or more of your fields are blank!");
-        qDebug() << "Second" << endl;
+
+        for(int j = 0; j < ui->addCustTable->columnCount(); ++j) {
+            auto item = ui->addCustTable->item(0, j);
+            if(!item) { // make sure there's an item in that cell
+                throw QString("One or more of your fields are blank!");
+            }
+        }
         QString nme = ui->addCustTable->item(0,0)->text();
         QString str = ui->addCustTable->item(0,1)->text();
         QString cty = ui->addCustTable->item(0,2)->text();
