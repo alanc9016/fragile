@@ -19,12 +19,12 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>751</width>
-      <height>471</height>
+      <width>761</width>
+      <height>461</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="landingPage">
      <widget class="QPushButton" name="adminLoginBtn">
@@ -967,6 +967,304 @@ p, li { white-space: pre-wrap; }
       <property name="text">
        <string>Update Customer List</string>
       </property>
+     </widget>
+     <widget class="QPushButton" name="editCustomerButton">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>150</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Edit a Customer</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="addDelete">
+     <widget class="QPushButton" name="BackButton_addDelete">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>370</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Go Back!</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="deleteTitle">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>20</y>
+        <width>221</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 18pt;</string>
+      </property>
+      <property name="text">
+       <string>Delete Customer</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>80</y>
+        <width>531</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="deleteLayout">
+       <item>
+        <widget class="QLabel" name="promptForDelete">
+         <property name="text">
+          <string>Enter name of customer you wish to delete: </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="uiDeleteCust"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="addTitle">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>160</y>
+        <width>191</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 18pt;</string>
+      </property>
+      <property name="text">
+       <string>Add Customer</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="addCustTable">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>210</y>
+        <width>671</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <row>
+       <property name="text">
+        <string>Customer</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Street</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>City</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>State</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Zip</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Status</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QPushButton" name="addCustButton">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>310</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Submit</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="editCustomers">
+     <widget class="QWidget" name="horizontalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>60</y>
+        <width>531</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="promptForCustomer">
+         <property name="text">
+          <string>Enter the name of the customer: </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="userInputEditCustomer"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="editCustomerTitle">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>20</y>
+        <width>191</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 18pt;</string>
+      </property>
+      <property name="text">
+       <string>Edit Customer</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="BackButton_editCustomers">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>380</y>
+        <width>111</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Go Back!</string>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="basicTable">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>170</y>
+        <width>571</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <row>
+       <property name="text">
+        <string>Customer</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Street</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>City</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>State</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Zip</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QTableWidget" name="custInfoTable">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>230</y>
+        <width>471</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <row>
+       <property name="text">
+        <string>Customer</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Interest</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Status</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Testimonial</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Requested</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QTableWidget" name="custOrderTable">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>300</y>
+        <width>371</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <row>
+       <property name="text">
+        <string>Customer</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>Robot 1</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Robot 2</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Robot 3</string>
+       </property>
+      </column>
      </widget>
     </widget>
     <widget class="QWidget" name="printCostumers">

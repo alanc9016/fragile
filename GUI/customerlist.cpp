@@ -59,9 +59,11 @@ void customerlist::addCustomer(const customer& c)
 {
     try{
         getCustomer(c.getName());
-        QTextStream(stdout) << c.getName() << " already exists in database!" << endl;
+        throw QString("Customer already exists!");
     }
     catch(QString ex){
+        if(ex == "Customer already exists!")
+            throw ex;
         QSqlQuery query;
         query.exec("INSERT INTO customer (name, street, city, state, zip, interest,"
                "status, testimonial, requested, robot1, robot2, robot3)"
@@ -73,6 +75,13 @@ void customerlist::addCustomer(const customer& c)
         customers.push_back(c);
     }
 }
+/**
+ * @brief customerlist::deleteCustomer
+ * deletes customer of name s from the customer list,
+ * as well as soft delete from database (set active to 0)
+ * @param s
+ * name of customer to be deleted
+ */
 void customerlist::deleteCustomer(QString s)
 {
     auto it = customers.begin();
@@ -83,7 +92,7 @@ void customerlist::deleteCustomer(QString s)
         if(it->getName() == s)
         {
             QSqlQuery query;
-            query.exec("UPDATE customer set isActive=0 where name="+customers.at(i).getName());
+            query.exec("UPDATE customer set isActive=0 where name='" + s + "'");
             customers.remove(i);
             notDeleted = false;
         }
@@ -91,7 +100,7 @@ void customerlist::deleteCustomer(QString s)
         ++i;
     }
     if(notDeleted==true)
-        throw QString("Error: No customer by name of "+s+" exists!");
+        throw QString("No customer by name of "+s+" exists!");
 }
 QVector<customer> customerlist::getCustomers()const
 {

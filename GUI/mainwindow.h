@@ -62,10 +62,29 @@ private slots:
     void on_BackBtnContactus_2_clicked();
 
     void on_requestCopyBtn_clicked();
+    void on_BackButton_editCustomers_clicked();
+
+    void on_editCustomerButton_clicked();
+
+    void on_userInputEditCustomer_returnPressed();
+
+
+    void on_basicTable_cellChanged(int row, int column);
+
+    void on_custInfoTable_cellChanged(int row, int column);
+
+    void on_custOrderTable_cellChanged(int row, int column);
+
+    void on_BackButton_addDelete_clicked();
+
+    void on_uiDeleteCust_returnPressed();
+
+    void on_addCustButton_clicked();
 
 private:
     Ui::MainWindow *ui;
     customerlist totalCustomers;
+    customer *custpointer;
 };
 /**
  * @brief createDatabase

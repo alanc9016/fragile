@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    custpointer = NULL;
 }
 
 MainWindow::~MainWindow()
@@ -42,6 +42,10 @@ void MainWindow::on_sendMessageBtn_clicked()
     sent.information(this,"Thank you for contacting us.","We will get back to you as soon as possible.");
 }
 
+/**
+ * @brief MainWindow::on_contactusBtn_clicked
+ * contact button
+ */
 void MainWindow::on_contactusBtn_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->contactPage);
@@ -79,6 +83,7 @@ void MainWindow::on_purchaseBtn_clicked()
 /**
  * @brief MainWindow::on_pBackBtn_clicked
  * ------------------------------------------------------------
+ * go back to landing page
  *
  **/
 void MainWindow::on_pBackBtn_clicked()
@@ -246,7 +251,9 @@ void MainWindow::on_viewListBtn_clicked()
  **/
 void MainWindow::on_addDeleteCustomerBtn_clicked()
 {
-
+    ui->stackedWidget->setCurrentWidget(ui->addDelete);
+    ui->addCustTable->clearContents();
+    ui->uiDeleteCust->clear();
 }
 
 /**
@@ -374,21 +381,28 @@ void MainWindow::on_pushButton_saveTestimonial_clicked()
             ui->label__error_name_not_found->show();
         else
         {
-           temp->setTestimonial(ui->lineEdit_testimonial->text());
-
-           ui->tableWidget_Testimonials->setColumnWidth(0,179);
-           ui->tableWidget_Testimonials->setColumnWidth(1,200);
-
-           QVector<customer> testimonialCustomers = irobots.getCustomers();
-           QVector<customer>::iterator itCustomers = testimonialCustomers.begin();
-           ui->tableWidget_Testimonials->setRowCount(testimonialCustomers.size());
-
-           for(int row = 0; row < signed(testimonialCustomers.size()); row++)
+           try
            {
-               ui->tableWidget_Testimonials->setItem(row,0,new QTableWidgetItem(itCustomers->getName()));
-               ui->tableWidget_Testimonials->setItem(row,1,new QTableWidgetItem(itCustomers->getTestimonial()));
-               itCustomers++;
-           }
+                temp->setTestimonial(ui->lineEdit_testimonial->text());
+
+                ui->tableWidget_Testimonials->setColumnWidth(0,179);
+                ui->tableWidget_Testimonials->setColumnWidth(1,200);
+
+                QVector<customer> testimonialCustomers = irobots.getCustomers();
+                QVector<customer>::iterator itCustomers = testimonialCustomers.begin();
+                ui->tableWidget_Testimonials->setRowCount(testimonialCustomers.size());
+
+                for(int row = 0; row < signed(testimonialCustomers.size()); row++)
+                {
+                    ui->tableWidget_Testimonials->setItem(row,0,new QTableWidgetItem(itCustomers->getName()));
+                    ui->tableWidget_Testimonials->setItem(row,1,new QTableWidgetItem(itCustomers->getTestimonial()));
+                    itCustomers++;
+                }
+            }
+            catch(QString ex)
+            {
+                QMessageBox::warning(this,"ERROR",ex);
+            }
         }
 
     }
@@ -451,5 +465,238 @@ void MainWindow::on_requestCopyBtn_clicked()
     catch (QString)
     {
         QMessageBox::warning(this,"ERROR","Customer not found!\nPlease try again");
+    }
+}
+ /**
+ * @brief MainWindow::on_BackButton_editCustomers_clicked
+ * Takes you back to admin window
+ */
+void MainWindow::on_BackButton_editCustomers_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->adminPage);
+    custpointer = NULL;
+}
+
+/**
+ * @brief MainWindow::on_editCustomerButton_clicked
+ * Takes you to edit customer window
+ */
+void MainWindow::on_editCustomerButton_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->editCustomers);
+    ui->basicTable->clearContents();
+    ui->custInfoTable->clearContents();
+    ui->custOrderTable->clearContents();
+    ui->userInputEditCustomer->clear();
+}
+
+void MainWindow::on_userInputEditCustomer_returnPressed()
+{
+   if(!ui->userInputEditCustomer->text().isEmpty())
+   {
+        QString n = ui->userInputEditCustomer->text();
+        try{
+            customer temp = irobots.getCustomer(n);
+            custpointer = NULL;
+            custpointer = irobots.FindCustomer(n);
+            ui->basicTable->setItem(0,0,new QTableWidgetItem(temp.getName()));
+            ui->basicTable->setItem(0,1,new QTableWidgetItem(temp.getStreet()));
+            ui->basicTable->setItem(0,2,new QTableWidgetItem(temp.getCity()));
+            ui->basicTable->setItem(0,3,new QTableWidgetItem(temp.getState()));
+            ui->basicTable->setItem(0,4,new QTableWidgetItem(temp.getZip()));
+
+            ui->custInfoTable->setItem(0,0, new QTableWidgetItem(temp.getInterest()));
+            ui->custInfoTable->setItem(0,1, new QTableWidgetItem(temp.getStatus()));
+            ui->custInfoTable->setItem(0,2, new QTableWidgetItem(temp.getTestimonial()));
+            ui->custInfoTable->setItem(0,3, new QTableWidgetItem(temp.getRequested()));
+
+            ui->custOrderTable->setItem(0,0, new QTableWidgetItem(QString::number(temp.getRobot1())));
+            ui->custOrderTable->setItem(0,1, new QTableWidgetItem(QString::number(temp.getRobot2())));
+            ui->custOrderTable->setItem(0,2, new QTableWidgetItem(QString::number(temp.getRobot3())));
+        }
+        catch (QString)
+        {
+            QMessageBox::warning(this,"ERROR","Customer not found!");
+        }
+   }
+}
+
+
+/**
+ * @brief MainWindow::on_basicTable_cellChanged
+ * will allow easy, protected editing of address of customer object
+ * @param row
+ * @param column
+ */
+void MainWindow::on_basicTable_cellChanged(int row, int column)
+{
+    try{
+        if(custpointer != NULL){
+            QString tmp = ui->basicTable->item(row, column)->text();
+            switch (column) {
+            case 0:
+                if(tmp != custpointer->getName())
+                    custpointer->setName(tmp);
+                break;
+            case 1:
+                if(tmp != custpointer->getStreet())
+                    custpointer->setStreet(tmp);
+                break;
+            case 2:
+                if(tmp != custpointer->getCity())
+                    custpointer->setCity(tmp);
+                break;
+            case 3:
+                if(tmp != custpointer->getState())
+                    custpointer->setState(tmp);
+                break;
+            case 4:
+                if(tmp != custpointer->getZip())
+                    custpointer->setZip(tmp);
+                break;
+            default:
+                qDebug() << "Something went wrong" << endl;
+                qDebug() << "custpointer: " << custpointer->getName() << endl;
+                qDebug() << "row: " << row << "  col: " << column << endl;
+                break;
+            }
+        }
+    }
+    catch(QString x){
+         QMessageBox::warning(this,"ERROR",x);
+    }
+}
+
+/**
+ * @brief MainWindow::on_custInfoTable_cellChanged
+ * will allow easy, protected editing of text fields related to customer object
+ * @param row
+ * @param column
+ */
+void MainWindow::on_custInfoTable_cellChanged(int row, int column)
+{
+    try{
+        if(custpointer != NULL){
+            QString tmp = ui->custInfoTable->item(row, column)->text();
+            switch (column) {
+            case 0:
+                if(tmp != custpointer->getInterest())
+                    custpointer->setInterest(tmp);
+                break;
+            case 1:
+                if(tmp != custpointer->getStatus())
+                    custpointer->setStatus(tmp);
+                break;
+            case 2:
+                if(tmp != custpointer->getTestimonial())
+                    custpointer->setTestimonial(tmp);
+                break;
+            case 3:
+                if(tmp != custpointer->getRequested())
+                    custpointer->setRequested(tmp);
+                break;
+            default:
+                qDebug() << "Something went wrong" << endl;
+                qDebug() << "custpointer: " << custpointer->getName() << endl;
+                qDebug() << "row: " << row << "  col: " << column << endl;
+                break;
+            }
+        }
+    }
+    catch(QString x){
+         QMessageBox::warning(this,"ERROR",x);
+    }
+
+}
+
+void MainWindow::on_custOrderTable_cellChanged(int row, int column)
+{
+    try{
+        if(custpointer != NULL){
+            int tmp = ui->custOrderTable->item(row, column)->text().toInt();
+            switch (column) {
+            case 0:
+                if(tmp != custpointer->getRobot1()){
+                    custpointer->setRobot1(tmp);
+                }
+                break;
+            case 1:
+                if(tmp != custpointer->getRobot2()){
+                    custpointer->setRobot2(tmp);
+                }
+                break;
+            case 2:
+                if(tmp != custpointer->getRobot3()){
+                    custpointer->setRobot3(tmp);
+                }
+                break;
+            default:
+                qDebug() << "Something went wrong" << endl;
+                qDebug() << "custpointer: " << custpointer->getName() << endl;
+                qDebug() << "row: " << row << "  col: " << column << endl;
+                break;
+            }
+        }
+    }
+    catch(QString x){
+         QMessageBox::warning(this,"ERROR",x);
+    }
+
+}
+
+/**
+ * @brief MainWindow::on_BackButton_addDelete_clicked
+ * return from add/delete page to admin page
+ */
+void MainWindow::on_BackButton_addDelete_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->adminPage);
+}
+
+void MainWindow::on_uiDeleteCust_returnPressed()
+{
+    if(!ui->uiDeleteCust->text().isEmpty())
+    {
+        try
+        {
+            irobots.deleteCustomer(ui->uiDeleteCust->text());
+            QMessageBox::information(this,"Success",
+                                     ui->uiDeleteCust->text() + " has been deleted!");
+        }
+        catch(QString x){
+             QMessageBox::warning(this,"ERROR",x);
+        }
+    }
+
+}
+
+void MainWindow::on_addCustButton_clicked()
+{
+    try
+    {
+        qDebug() << "Start" << endl;
+
+        for(int j = 0; j < ui->addCustTable->columnCount(); ++j) {
+            auto item = ui->addCustTable->item(0, j);
+            if(!item) { // make sure there's an item in that cell
+                throw QString("One or more of your fields are blank!");
+            }
+        }
+        QString nme = ui->addCustTable->item(0,0)->text();
+        QString str = ui->addCustTable->item(0,1)->text();
+        QString cty = ui->addCustTable->item(0,2)->text();
+        QString sta = ui->addCustTable->item(0,3)->text();
+        QString zip = ui->addCustTable->item(0,4)->text();
+        QString sts = ui->addCustTable->item(0,5)->text();
+
+        if(nme != "" && str != "" && cty!="" && sta!="" && zip != "" && sts!="")
+        {
+            irobots.addCustomer(customer(nme, str, cty, sta, zip, sts));
+            QMessageBox::information(this, "Success!", nme + " was added to the customerlist!");
+        }
+    }
+    catch(QString ex)
+    {
+        QMessageBox::warning(this, "ERROR", ex);
     }
 }
