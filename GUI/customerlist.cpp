@@ -1,5 +1,9 @@
 #include "customer.h"
 #include "mainwindow.h"
+/**
+ * @brief customerlist::customerlist
+ * will create a customerlist object from the entries in the database
+ */
 customerlist::customerlist()
 {
     QSqlQuery query;
@@ -14,6 +18,11 @@ customerlist::customerlist()
     }
 }
 
+/**
+ * @brief customerlist::customerlist
+ * @param q
+ * is the query that will create customer list
+ */
 customerlist::customerlist(QString q)
 {
     QSqlQuery query;
@@ -27,6 +36,14 @@ customerlist::customerlist(QString q)
     }
 }
 
+/**
+ * @brief customerlist::getCustomer
+ * will return customer object if found by name
+ * @param nm
+ * name of customer
+ * @return customer if found
+ * @exception qstring if customer not found
+ */
 customer customerlist::getCustomer(const QString& nm)
 {
     for(auto it = customers.begin(), end = customers.end(); it != end; ++it) {
@@ -39,6 +56,10 @@ customer customerlist::getCustomer(const QString& nm)
     return customer();
 }
 
+/**
+ * @brief customerlist::printCustomers
+ * will print list of customers
+ */
 void customerlist::printCustomers()const
 {
     QVector<customer>::const_iterator it = customers.begin();
@@ -103,6 +124,10 @@ void customerlist::deleteCustomer(QString s)
     if(notDeleted==true)
         throw QString("No customer by name of "+s+" exists!");
 }
+/**
+ * @brief customerlist::getCustomers
+ * @return customerlist composed of all customers in customer list
+ */
 QVector<customer> customerlist::getCustomers()const
 {
     QVector<customer> totalCustomers;
@@ -116,6 +141,10 @@ QVector<customer> customerlist::getCustomers()const
 
     return totalCustomers;
 }
+/**
+ * @brief customerlist::getKeyCustomers
+ * @return prints list of key customers
+ */
 QVector<customer> customerlist::getKeyCustomers()const
 {
     QVector<customer> keyCustomer;
@@ -130,6 +159,14 @@ QVector<customer> customerlist::getKeyCustomers()const
 
     return keyCustomer;
 }
+/**
+ * @brief customerlist::FindCustomer
+ * Will find customer in customer list
+ * @param customerName
+ * name of customer to search for
+ * @return
+ * pointer to customer object or null if not found
+ */
 customer* customerlist::FindCustomer(QString customerName)
 {
     for(auto i = customers.begin(); i != customers.end(); ++i)
@@ -138,6 +175,10 @@ customer* customerlist::FindCustomer(QString customerName)
 
     return nullptr;
 }
+/**
+ * @brief customerlist::printKeyCustomers
+ * prints a list of customers with status 'key'
+ */
 void customerlist::printKeyCustomers()const
 {
     QVector<customer>::const_iterator it = customers.begin();
