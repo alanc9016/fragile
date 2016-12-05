@@ -290,6 +290,13 @@ public:
     QVector<customer>getCustomers()const;
 
     /**
+     * @brief getKeyCustomers
+     * gets all the customers set as key
+     * @return  a vector of type customer
+     */
+    QVector<customer>getKeyCustomers()const;
+
+    /**
      * @brief FindCustomer
      * Finds a customer in the customer list
      * @param customerName

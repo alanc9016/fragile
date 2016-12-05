@@ -115,6 +115,20 @@ QVector<customer> customerlist::getCustomers()const
 
     return totalCustomers;
 }
+QVector<customer> customerlist::getKeyCustomers()const
+{
+    QVector<customer> keyCustomer;
+    QVector<customer>::const_iterator it = customers.begin();
+
+    while(it != customers.end())
+    {
+        if(it->getStatus() == "key")
+            keyCustomer.push_back((*it));
+        it++;
+    }
+
+    return keyCustomer;
+}
 customer* customerlist::FindCustomer(QString customerName)
 {
     for(auto i = customers.begin(); i != customers.end(); ++i)
@@ -122,4 +136,15 @@ customer* customerlist::FindCustomer(QString customerName)
             return &(*i);
 
     return nullptr;
+}
+void customerlist::printKeyCustomers()const
+{
+    QVector<customer>::const_iterator it = customers.begin();
+
+    while(it != customers.end())
+    {
+        if(it->getStatus() == "key")
+            it->printCustomer();
+        it++;
+    }
 }

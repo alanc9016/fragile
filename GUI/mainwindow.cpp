@@ -242,6 +242,53 @@ void MainWindow::on_viewListBtn_clicked()
 
     ui->tableWidget_printCustomers->setSortingEnabled(true);
 
+
+    ui->tableWidget_printKeyCustomers->setColumnWidth(0,179);
+    ui->tableWidget_printKeyCustomers->setColumnWidth(1,175);
+    ui->tableWidget_printKeyCustomers->setColumnWidth(2,125);
+    ui->tableWidget_printKeyCustomers->setColumnWidth(3,50);
+    ui->tableWidget_printKeyCustomers->setColumnWidth(4,60);
+    ui->tableWidget_printKeyCustomers->setColumnWidth(5,150);
+    ui->tableWidget_printKeyCustomers->setColumnWidth(6,100);
+    ui->tableWidget_printKeyCustomers->setColumnWidth(7,125);
+    ui->tableWidget_printKeyCustomers->setColumnWidth(8,125);
+    ui->tableWidget_printKeyCustomers->setColumnWidth(9,50);
+    ui->tableWidget_printKeyCustomers->setColumnWidth(10,125);
+    ui->tableWidget_printKeyCustomers->setColumnWidth(11,125);
+    ui->tableWidget_printKeyCustomers->setColumnWidth(12,125);
+
+    ui->tableWidget_printKeyCustomers->setEnabled(true);
+    ui->tableWidget_printKeyCustomers->setSortingEnabled(false);
+
+    QVector<customer> keyCustomers = irobots.getKeyCustomers();
+
+    QVector<customer>::iterator itKeyCustomers = keyCustomers.begin();
+
+    ui->tableWidget_printKeyCustomers->setRowCount(keyCustomers.size());
+
+    for(int row = 0; row < signed(keyCustomers.size()); row++)
+    {
+        ui->tableWidget_printKeyCustomers->setItem(row,0,new QTableWidgetItem(itKeyCustomers->getName()));
+        ui->tableWidget_printKeyCustomers->setItem(row,1,new QTableWidgetItem(itKeyCustomers->getStreet()));
+        ui->tableWidget_printKeyCustomers->setItem(row,2,new QTableWidgetItem(itKeyCustomers->getCity()));
+        ui->tableWidget_printKeyCustomers->setItem(row,3,new QTableWidgetItem(itKeyCustomers->getState()));
+        ui->tableWidget_printKeyCustomers->setItem(row,4,new QTableWidgetItem(itKeyCustomers->getZip()));
+        ui->tableWidget_printKeyCustomers->setItem(row,5,new QTableWidgetItem(itKeyCustomers->getInterest()));
+        ui->tableWidget_printKeyCustomers->setItem(row,6,new QTableWidgetItem(itKeyCustomers->getStatus()));
+        ui->tableWidget_printKeyCustomers->setItem(row,7,new QTableWidgetItem(itKeyCustomers->getTestimonial()));
+        ui->tableWidget_printKeyCustomers->setItem(row,8,new QTableWidgetItem(itKeyCustomers->getRequested()));
+        if(itKeyCustomers->getActive())
+            ui->tableWidget_printKeyCustomers->setItem(row,9,new QTableWidgetItem("Yes"));
+        else
+            ui->tableWidget_printKeyCustomers->setItem(row,9,new QTableWidgetItem("No"));
+        ui->tableWidget_printKeyCustomers->setItem(row,10,new QTableWidgetItem(QString::number(itKeyCustomers->getRobot1())));
+        ui->tableWidget_printKeyCustomers->setItem(row,11,new QTableWidgetItem(QString::number(itKeyCustomers->getRobot2())));
+        ui->tableWidget_printKeyCustomers->setItem(row,12,new QTableWidgetItem(QString::number(itKeyCustomers->getRobot3())));
+        itKeyCustomers++;
+    }
+
+    ui->tableWidget_printKeyCustomers->setSortingEnabled(true);
+
 }
 
 /**
