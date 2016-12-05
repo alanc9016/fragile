@@ -320,15 +320,17 @@ void MainWindow::on_addDeleteCustomerBtn_clicked()
 void MainWindow::on_purchasePushButton_clicked()
 {
     QString namePurchaser = ui->namePurchaserLineEdit->text();
-    customer verifiedCustomer;
+    customer* verifiedCustomer;
 
     qDebug() << "\n\nnamePurchaser: " << namePurchaser << endl;
 
     try
     {
-        verifiedCustomer = irobots.getCustomer(namePurchaser);
+        verifiedCustomer = irobots.FindCustomer(namePurchaser);
+        if(verifiedCustomer == NULL)
+            throw QString("Customer does not exist!");
 
-        qDebug() << "verifiedCustomer.getName(): " << verifiedCustomer.getName() << endl;
+        qDebug() << "verifiedCustomer.getName(): " << verifiedCustomer->getName() << endl;
         qDebug() << "ui->numRobot1Purch->currentText(): " << ui->numRobot1Purch->currentText() << endl;
         qDebug() << "ui->numRobot2Purch->currentText(): " << ui->numRobot2Purch->currentText() << endl;
         qDebug() << "ui->numRobot3Purch->currentText(): " << ui->numRobot3Purch->currentText() << endl;
@@ -341,9 +343,9 @@ void MainWindow::on_purchasePushButton_clicked()
         else
         {
             //Updating number of robots bought
-            verifiedCustomer.setRobot1(ui->numRobot1Purch->currentText().toInt());
-            verifiedCustomer.setRobot2(ui->numRobot2Purch->currentText().toInt());
-            verifiedCustomer.setRobot3(ui->numRobot3Purch->currentText().toInt());
+            verifiedCustomer->setRobot1(ui->numRobot1Purch->currentText().toInt());
+            verifiedCustomer->setRobot2(ui->numRobot2Purch->currentText().toInt());
+            verifiedCustomer->setRobot3(ui->numRobot3Purch->currentText().toInt());
 
             QMessageBox::information(this,"Success","Your order has been submitted, thank you!");
 

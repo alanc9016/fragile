@@ -69,7 +69,7 @@ customer::customer(QString nm, QString str, QString cty, QString sta, QString zp
     testimonial(""), requested("not requested"), isActive(true),robot1(0),robot2(0),robot3(0)
 {
     QRegExp ex("\\d*");
-    QRegExp pr("[a-zA-Z]*");
+    QRegExp pr("[a-zA-Z ]*");
     if(!ex.exactMatch(zip))
         throw QString("Zip code can only be digits!");
     if(!pr.exactMatch(cty)||!pr.exactMatch(sta))
