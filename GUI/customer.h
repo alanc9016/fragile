@@ -100,6 +100,11 @@ public:
      */
     void setName(QString);
     /**
+     * @brief operator =
+     * does same thing as setName
+     */
+    void operator=(QString);
+    /**
      * @brief setStreet
      */
     void setStreet(QString);
@@ -133,8 +138,14 @@ public:
     void setRequested(QString);
     /**
      * @brief setActive
+     * will soft delete customer from database
      */
     void setActive(bool);
+    /**
+     * @brief operator %
+     * does same thing as setActive
+     */
+    void operator %(bool);
     /**
      * @brief setRobot1
      */

@@ -91,8 +91,9 @@ void customerlist::deleteCustomer(QString s)
     {
         if(it->getName() == s)
         {
-            QSqlQuery query;
-            query.exec("UPDATE customer set isActive=0 where name='" + s + "'");
+            //QSqlQuery query;
+            //query.exec("UPDATE customer set isActive=0 where name='" + s + "'");
+            *it%false;
             customers.remove(i);
             notDeleted = false;
         }

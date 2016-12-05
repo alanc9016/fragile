@@ -224,6 +224,16 @@ void customer::setName(QString n)
 }
 
 /**
+ * @brief customer::operator =
+ * @param s
+ * the value name will be set to
+ */
+void customer::operator =(QString s)
+{
+    setName(s);
+}
+
+/**
  * @brief customer::setStreet
  * @param s
  * the value street will be set to
@@ -361,9 +371,20 @@ void customer::setRequested(QString r)
 void customer:: setActive(bool a)
 {
     QSqlQuery query;
-    query.exec("UPDATE customer SET isActive='"+QString::number(a)+"' where name='"+name+"'");
+    query.exec("UPDATE customer SET isActive="+QString::number(a)+" where name='"+name+"'");
     isActive = a;
 }
+
+/**
+ * @brief customer::operator %
+ * @param a
+ * determines if customer is active or not
+ */
+void customer::operator %(bool a)
+{
+    setActive(a);
+}
+
 
 /**
  * @brief customer::printCustomer

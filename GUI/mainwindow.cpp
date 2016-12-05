@@ -35,6 +35,10 @@ void MainWindow::on_helpBtn_clicked()
                                          "button to be directed to the login page.");
 }
 
+/**
+ * @brief MainWindow::on_sendMessageBtn_clicked
+ * contact us notification for submission
+ */
 void MainWindow::on_sendMessageBtn_clicked()
 {
     QMessageBox sent;
@@ -190,7 +194,8 @@ void MainWindow::on_logOutBtn_clicked()
 /**
  * @brief MainWindow::on_viewListBtn_clicked
  * ----------------------------------------------------------
- *
+ * Will print list of all customers and their respective
+ * data fields.
  **/
 void MainWindow::on_viewListBtn_clicked()
 {
@@ -304,16 +309,6 @@ void MainWindow::on_addDeleteCustomerBtn_clicked()
 }
 
 /**
- * @brief MainWindow::on_updateListBtn_clicked
- * ----------------------------------------------------------
- *
- **/
-void MainWindow::on_updateListBtn_clicked()
-{
-
-}
-
-/**
  * @brief MainWindow::on_purchasePushButton_clicked
  * ------------------------------------------------------------
  * This button submits purchases of the different robots to
@@ -362,11 +357,18 @@ void MainWindow::on_purchasePushButton_clicked()
 }
 
 
+/**
+ * @brief MainWindow::on_BackButton_printCustomers_clicked
+ */
 void MainWindow::on_BackButton_printCustomers_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->adminPage);
 }
 
+/**
+ * @brief MainWindow::on_testimonialBtn_clicked
+ * set up testimonial page
+ */
 void MainWindow::on_testimonialBtn_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->testimonialPage);
@@ -390,11 +392,21 @@ void MainWindow::on_testimonialBtn_clicked()
     }
 }
 
+/**
+ * @brief MainWindow::on_BackButton_testimonial_clicked
+ * go back to landing
+ */
 void MainWindow::on_BackButton_testimonial_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->landingPage);
 }
 
+/**
+ * @brief MainWindow::on_pushButton_saveTestimonial_clicked
+ * Takes input from user in order to create testimonial
+ * If no customer is found under the name input, it won't save testimonial.
+ * There is also a window of testimonials for people to see.
+ */
 void MainWindow::on_pushButton_saveTestimonial_clicked()
 {
     customer *temp;
@@ -537,6 +549,10 @@ void MainWindow::on_editCustomerButton_clicked()
     ui->userInputEditCustomer->clear();
 }
 
+/**
+ * @brief MainWindow::on_userInputEditCustomer_returnPressed
+ * will populate the fields of the table with data
+ */
 void MainWindow::on_userInputEditCustomer_returnPressed()
 {
    if(!ui->userInputEditCustomer->text().isEmpty())
@@ -583,7 +599,7 @@ void MainWindow::on_basicTable_cellChanged(int row, int column)
             switch (column) {
             case 0:
                 if(tmp != custpointer->getName())
-                    custpointer->setName(tmp);
+                    *custpointer=tmp;
                 break;
             case 1:
                 if(tmp != custpointer->getStreet())

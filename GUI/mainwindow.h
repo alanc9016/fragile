@@ -26,7 +26,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    customerlist irobots;
+    customerlist irobots;///> customerlist object for mainwindow class
     ~MainWindow();
 
 private slots:
@@ -45,7 +45,6 @@ private slots:
     void on_logOutBtn_clicked();
     void on_viewListBtn_clicked();
     void on_addDeleteCustomerBtn_clicked();
-    void on_updateListBtn_clicked();
 
     void on_purchasePushButton_clicked();
 
@@ -84,7 +83,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     customerlist totalCustomers;
-    customer *custpointer;
+    customer *custpointer;///> pointer to customer object
 };
 /**
  * @brief createDatabase
