@@ -765,3 +765,11 @@ void MainWindow::on_addCustButton_clicked()
         QMessageBox::warning(this, "ERROR", ex);
     }
 }
+
+void MainWindow::on_mainPlanPushBttn_clicked()
+{
+    QMessageBox::information(this, "Maintenance", "Each robot is completely insured up to 2 years.\n"
+                                                  "All service charges are covered for first 3 years or first 10 bombs diffused.\n"
+                                                  "\nAll service charges after 3 years or 10 bombs diffused will cost $200 flat fee "
+                                                  "plus costs for fixing or replacing parts.");
+}
