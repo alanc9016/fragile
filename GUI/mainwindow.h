@@ -80,6 +80,8 @@ private slots:
 
     void on_addCustButton_clicked();
 
+    void on_mainPlanPushBttn_clicked();
+
 private:
     Ui::MainWindow *ui;
     customerlist totalCustomers;
